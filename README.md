@@ -1,34 +1,133 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Alumni Net
 
-## Getting Started
+An Online portal for connecting Alumnus from The Directorate of Higher Education
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Index	
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1.  [Problem Statement](#Problem Statement)
+2.  [Overview](#Overview)
+3.  [Website](#Website)
+4.  [Backend](#Backend)
+5. [UI / UX](#UI / UX)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+# Problem Statement
 
-To learn more about Next.js, take a look at the following resources:
+### Alumni Tracking System
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The Directorate of Higher Education has 7 Government Colleges and 26 aided colleges under it.
+Altogether, more than 10000 students that pass out from them every year either choose to opt for
+further studies, work or have their own startups. Currently, there is no mechanism for the colleges
+and the Directorate to keep a track of the students passing out. Hence, the problem is to develop
+a web based application for colleges and the Directorate to keep a track of the Alumni. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**The said application should have the following features :**
 
-## Deploy on Vercel
+- Allow the Alumni members to register themselves
+- Allow colleges to verify and authenticate their registered alumni
+- Provision for alumni members to update their details
+- Allow the colleges to search details based on criteria such as year, subject, etc.
+- Allow the Directorate to search details based on criteria such as colleges, year, subject, etc.
+- Send messages and emails to alumni members
+- Group chats, create events, publish notices on the portal
+- Security features with login for every user.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Overview
+
+### Tech Stack
+
+- [ ] Next.js
+
+- [ ] Typescript
+
+- [ ] SASS with CSS Modules
+
+- [ ] Redux
+
+- [ ] Firebase
+
+- [ ] react-hot-toast
+
+- [ ] react-hook-form
+
+  
+
+### Small Functionalities
+
+- [ ] Loader
+- [ ] SEO
+- [ ] Custom 404
+- [ ] Admin Page
+- [ ] Firestore Rules
+
+
+
+# Website
+
+The website would have different login paths which are complaint to the type of user
+
+
+
+### Common Functionalities
+
+- [ ] User Dashboard
+- [ ] Search Alumni
+- [ ] 
+
+### Alumni
+
+- [ ] Register Themselves
+
+- [ ] Group Chat
+
+  
+
+### Institution / Directorate
+
+- [ ] Verify Registered Alumni
+
+- [ ] Send Batch Email
+
+- [ ] Publish Events and Notices
+
+  
+
+
+
+# Backend
+
+The Backend would be based on firebase and use their Authentication, Firestore, Storage bucket
+
+
+
+## Document Structure
+
+### User
+
+
+
+### Message
+
+
+
+### Notice
+
+
+
+### College
+
+
+
+
+
+
+
+# UI / UX
+
+
+
