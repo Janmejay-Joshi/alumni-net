@@ -42,20 +42,15 @@ a web based application for colleges and the Directorate to keep a track of the 
 ### Tech Stack
 
 - [ ] Next.js
-
 - [ ] Typescript
-
 - [ ] SASS with CSS Modules
-
 - [ ] Redux
-
 - [ ] Firebase
-
 - [ ] react-hot-toast
-
 - [ ] react-hook-form
 
-  
+
+
 
 ### Small Functionalities
 
@@ -64,6 +59,29 @@ a web based application for colleges and the Directorate to keep a track of the 
 - [ ] Custom 404
 - [ ] Admin Page
 - [ ] Firestore Rules
+
+
+
+### Additional Functionalities
+
+- [ ] Post Content
+- [ ] Comments
+- [ ] Likes
+- [ ] Dynamic @ Redirects
+
+
+
+### Additional Functionalities (Requires Backend Functions / Code)
+
+- [ ] Who To follow
+
+- [ ] User Presence
+
+- [ ] Read Messages
+
+- [ ] Friend and Events
+
+  
 
 
 
@@ -76,8 +94,10 @@ The website would have different login paths which are complaint to the type of 
 ### Common Functionalities
 
 - [ ] User Dashboard
+
 - [ ] Search Alumni
-- [ ] 
+
+  
 
 ### Alumni
 
