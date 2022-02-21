@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "precommit": "npm test",
+    "prepush": "npm test",
+    "postmerge": "sh hooks/postmerge",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
