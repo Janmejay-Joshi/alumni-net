@@ -5,7 +5,7 @@ import {
   FacebookLoginButton,
   GoogleLoginButton,
 } from "react-social-login-buttons";
-import BlobBackground from "../../components/reusables/BlobBackground";
+import BlobBackground from "../../components/auth/BlobBackground";
 import styles from "../../styles/PageStyles/Login.module.scss";
 
 interface LoginInput {
