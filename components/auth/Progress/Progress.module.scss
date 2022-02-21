@@ -1,0 +1,44 @@
+.card__head_title {
+  display: flex;
+  gap: 2.3rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+
+  .circle__background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+
+    .count {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+
+      /* Facebook blue */
+      color: var(--brand-blue);
+    }
+  }
+
+  .title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+
+    /* White */
+    color: var(--white);
+
+    &:active {
+      color: var(--dark-blue);
+    }
+  }
+}
