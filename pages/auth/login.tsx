@@ -5,7 +5,7 @@ import {
   FacebookLoginButton,
   GoogleLoginButton,
 } from "react-social-login-buttons";
-import LoginBackground from "../../components/auth/LoginBackground";
+import BlobBackground from "../../components/reusables/BlobBackground";
 import styles from "../../styles/PageStyles/Login.module.scss";
 
 interface LoginInput {
@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <>
-      <LoginBackground />
+      <BlobBackground />
       <div className={styles.container}>
         <div className={styles.card}>
           <h2 className={styles.title}>{"Log In"}</h2>
