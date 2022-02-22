@@ -39,7 +39,7 @@ const FirstStep = () => {
                 })}
               />
               {errors?.email?.type === "required" && (
-                <p>{"This field is required"}</p>
+                <p style={{color : "var(--notification-red)", fontSize:  "0.825rem", margin: 0, padding: 0 }}>{"This field is required"}</p>
               )}
             </div>
 
@@ -54,9 +54,9 @@ const FirstStep = () => {
                 })}
               />
               {errors?.email?.type === "required" && (
-                <p>{"This field is required"}</p>
+                <p style={{color : "var(--notification-red)", fontSize:  "0.825rem" ,margin :0 , padding: 0 }}>{"This field is required"}</p>
               )}
-              {errors?.email?.type === "pattern" && <p>{"Email only"}</p>}
+              {errors?.email?.type === "pattern" && <p style={{color : "var(--notification-red)", fontSize:  "0.825rem" ,margin :0 , padding: 0 }}>{"Email only"}</p>}
             </div>
             <div className={styles.input__div}>
               <span>{"Phone*"}</span>
@@ -68,7 +68,7 @@ const FirstStep = () => {
                 })}
               />
               {errors?.email?.type === "required" && (
-                <p>{"This field is required"}</p>
+                <p style={{color : "var(--notification-red)", fontSize:  "0.825rem" ,margin :0 , padding: 0 }}>{"This field is required"}</p>
               )}
             </div>
           </div>
