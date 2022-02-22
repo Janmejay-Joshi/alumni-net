@@ -1,32 +1,5 @@
-.content__title {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
 
-  /* Slate Grey */
-  color: var(--slate-grey);
-}
 
-.content__subtitle {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 2.25rem;
-  line-height: 2.75rem;
-
-  /* identical to box height */
-
-  /* Catalina Blue */
-  color: var(--dark-blue);
-}
-.form {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 
     .form__contaienr {
       display: flex;
@@ -123,4 +96,4 @@
         }
       }
     }
-  }
+  

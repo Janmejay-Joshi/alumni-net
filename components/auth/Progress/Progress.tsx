@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./Progress.module.scss";
 
-const Progress = () => {
+const Progress = ({steps}: any) => {
+
+
   return (
     <>
-      <div className={styles.progress__bar}>
+      <div className={styles.progress__bar} >
+        
         <div className={`${styles.card__head_title} ${styles.active}`}>
           <div className={styles.circle__background}>
             <h1 className={styles.count}>1</h1>
@@ -23,7 +26,8 @@ const Progress = () => {
           </div>
           <h1 className={styles.title}>Current Working Info</h1>
         </div>
-      </div>
+        </div>
+     
     </>
   );
 };
