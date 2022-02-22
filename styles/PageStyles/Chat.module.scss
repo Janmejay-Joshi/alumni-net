@@ -1,0 +1,199 @@
+.container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  padding: 0 2rem;
+  @media only screen and (max-width: 1000px) {
+  padding: 0 0.5rem;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 80px;
+    height: calc(100%);
+    
+    .info_cards{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 25vw;
+      height: 100%;
+      padding: 2rem;
+      gap: 2rem;
+
+      @media only screen and (max-width: 1000px) {
+          display: none;
+      }
+      
+      .group_desc{
+        background-color: #fff;
+        flex: 1;
+        width: 100%;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+        background: var(--white);
+
+        border: 1.5px solid var(--solitude);
+        box-sizing: border-box;
+        border-radius: 8px;
+      }
+
+      .available_chats{
+        flex: 3;
+        width: 100%;
+        background: var(--white);
+        // border: 1.5px solid var(--solitude);
+        box-sizing: border-box;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+      }
+    }
+
+    .chat_container{
+      flex: 2;
+      padding: 2rem;
+
+      .chat_wraper{
+        height: 100%;
+        width: 100%;
+        background: var(--solitude);
+        border: 1.5px solid var(--solitude);
+        box-sizing: border-box;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.20);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+
+        .chat_box{
+          flex:1;
+          overflow-y: scroll;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          gap: 2rem;
+          padding: 1rem;
+        }
+
+        .textbar_wraper {
+          display: flex;
+          padding: 0 1rem;
+          flex-direction: row;
+          width: 100%;
+          height: 100px;
+          padding-bottom: 1rem;
+
+          .textbar{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            
+            .textbox{
+              flex: 10;
+              min-height: 100%;
+              background: var(--white);
+              box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25),
+                          0px 1px 5px rgba(0, 0, 0, 0.25);
+              border-radius: 8px;
+              resize: none;
+              border: none;
+              padding: 8px;
+
+              &:focus-visible{
+                outline: 1px solid var(--brand-blue);
+              }
+
+            }
+            .send{
+              height: 55px;
+              width: 55px;
+              background: var(--white);
+              box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25),
+              0px 1px 5px rgba(0, 0, 0, 0.25);
+              border-radius: 50%;
+
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.chat_recive{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+  min-height: 15%;
+  
+  .profile_pic {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  }
+  .message_wraper{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    .message{
+      height: 100%;
+      width: 55%;
+      background-color: #fff;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+      border-radius: 15px 15px 15px 0px;
+    }
+    .timestamp{
+      background-color: #fff;
+    }
+  }
+}
+
+.chat_sent{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+  min-height: 15%;
+  
+  .profile_pic {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  }
+  .message_wraper{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+
+    .message{
+      height: 100%;
+      width: 55%;
+      background: rgba(24, 119, 242, 0.5);
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+      border-radius: 15px 15px 0px 15px;
+    }
+    .timestamp{
+      background-color: #fff;
+    }
+  }
+}
