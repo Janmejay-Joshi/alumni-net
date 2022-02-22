@@ -14,20 +14,20 @@ export default function Chat() {
         <div className={styles.chat_container}>
           <div className={styles.chat_wraper}>
             <div className={styles.chat_box}>
-              {[0, 1, 2, 3, 4].map((data, index) => {
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((data, index) => {
                 return data % 2 == 0 ? (
                   <div className={styles.chat_recive}>
                     <div className={styles.profile_pic}></div>
                     <div className={styles.message_wraper}>
                       <div className={styles.message}></div>
-                      <span className={styles.timestamp}></span>
+                      <span className={styles.timestamp}>{`Date ${data * 1.5}`}</span>
                     </div>
                   </div>
                 ) : (
                   <div className={styles.chat_sent}>
                     <div className={styles.message_wraper}>
                       <div className={styles.message}></div>
-                      <span className={styles.timestamp}></span>
+                      <span className={styles.timestamp}>{`Date ${data * 1.5}`}</span>
                     </div>
                     <div className={styles.profile_pic}></div>
                   </div>

@@ -76,6 +76,24 @@
           height: 100%;
           gap: 2rem;
           padding: 1rem;
+
+          &::-webkit-scrollbar {
+width: 5px;
+	background-color: #F5F5F5;
+          }
+
+          &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+          }
+
+          &::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background: rgba(24, 119, 242, 0.5);
+          }
+
         }
 
         .textbar_wraper {
@@ -148,7 +166,7 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     .message{
       height: 100%;
       width: 55%;
@@ -157,7 +175,9 @@
       border-radius: 15px 15px 15px 0px;
     }
     .timestamp{
-      background-color: #fff;
+      color: var(--slate-grey);
+      padding-left: 0.5rem;
+      font-size: 0.8rem;
     }
   }
 }
@@ -193,7 +213,9 @@
       border-radius: 15px 15px 0px 15px;
     }
     .timestamp{
-      background-color: #fff;
+      color: var(--slate-grey);
+      padding-left: 0.5rem;
+      font-size: 0.8rem;
     }
   }
 }
