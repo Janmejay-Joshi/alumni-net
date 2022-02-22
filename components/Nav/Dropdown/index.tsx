@@ -8,9 +8,9 @@ const Dropdown = () => {
     
   return (
     <div className={styles.container}>
-      {data.map(d => {
+      {data.map((d,index)=> {
           return(
-          <div className={styles.listitem}>
+          <div className={styles.listitem} key={index}>
             <Link href={d.link}>{d.name}</Link>
           </div>
           );

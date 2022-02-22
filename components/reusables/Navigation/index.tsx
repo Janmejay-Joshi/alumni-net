@@ -122,6 +122,7 @@ export default function Navigation() {
             src="/assets/images/Nav/profile.svg"
             className={styles.profilepic}
             onClick={handleProfileClick}
+            alt="profilepic"
           />
         </div>
         {
