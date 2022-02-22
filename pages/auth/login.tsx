@@ -1,4 +1,6 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   AppleLoginButton,
@@ -6,23 +8,44 @@ import {
   GoogleLoginButton,
 } from "react-social-login-buttons";
 import BlobBackground from "../../components/auth/BlobBackground";
+import { auth } from "../../firebase";
+import {
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase/authFunctions";
 import styles from "../../styles/PageStyles/Login.module.scss";
 
 interface LoginInput {
+  name: string;
   email: string;
   password: string;
 }
 
+const emailVerifyRegex =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 export default function Login() {
+  const router = useRouter();
+  const [user, loading, error] = useAuthState(auth);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<LoginInput>();
-  const emailVerifyRegex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  const onSubmit: SubmitHandler<LoginInput> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<LoginInput> = (data) => {
+    console.log(data);
+    const { name, email, password } = data;
+    registerWithEmailAndPassword(name, email, password);
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    // if (user) router.replace("/");
+    if (error) console.log(error);
+  }, [loading, user, error]);
 
   return (
     <>
@@ -36,6 +59,19 @@ export default function Login() {
               id="UserPass Form"
               className={styles.userpass}
             >
+              <div className={styles.input_container}>
+                <span>{"Full Name"}</span>
+                <input
+                  type={"text"}
+                  className={styles.input}
+                  {...register("name", {
+                    required: true,
+                  })}
+                />
+                {errors?.name?.type === "required" && (
+                  <p>{"This field is required"}</p>
+                )}
+              </div>
               <div className={styles.input_container}>
                 <span>{"Email"}</span>
                 <input
@@ -68,7 +104,7 @@ export default function Login() {
             </form>
             <div className={styles.seperator} />
             <div className={styles.socialauth}>
-              <GoogleLoginButton />
+              <GoogleLoginButton onClick={signInWithGoogle} />
               <FacebookLoginButton />
               <AppleLoginButton />
             </div>
