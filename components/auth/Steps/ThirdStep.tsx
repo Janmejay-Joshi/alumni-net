@@ -1,42 +1,40 @@
 import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./Steps.module.scss";
+import { useForm, SubmitHandler } from "react-hook-form";
 
-interface SecondStep {
-  clgname: string;
-  branch: string;
-  year_of_passing: number;
+interface ThirdStep {
+  company_name: string;
+  designation: string;
+  year_of_experience: number;
 }
 
-const SecondStep = () => {
+const ThirdStep = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SecondStep>();
-
-  const onSubmit: SubmitHandler<SecondStep> = (formData) => {
+  } = useForm<ThirdStep>();
+  const onSubmit: SubmitHandler<ThirdStep> = (formData) => {
     console.log(formData);
   };
-
   return (
     <>
-      <h2 className={styles.content__title}>STEP 2 </h2>
-      <h1 className={styles.content__subtitle}>College Information</h1>
+      <h2 className={styles.content__title}>STEP 3 </h2>
+      <h1 className={styles.content__subtitle}>Work Experience</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.form__contaienr}>
           <div className={styles.form__center}>
             <div className={styles.input__div}>
-              <span>{"College Name*"}</span>
+              <span>{"Company Name*"}</span>
               <input
                 type={"text"}
-                placeholder={"College Name"}
+                placeholder={"Company Name"}
                 className={styles.input}
-                {...register("clgname", {
+                {...register("company_name", {
                   required: true,
                 })}
               />
-              {errors?.clgname?.type === "required" && (
+              {errors?.company_name?.type === "required" && (
                 <p
                   style={{
                     color: "var(--notification-red)",
@@ -50,16 +48,16 @@ const SecondStep = () => {
               )}
             </div>
             <div className={styles.input__div}>
-              <span>{"Branch*"}</span>
+              <span>{"Designation*"}</span>
               <input
                 type={"text"}
-                placeholder={"Branch"}
+                placeholder={"Designation"}
                 className={styles.input}
-                {...register("branch", {
+                {...register("designation", {
                   required: true,
                 })}
               />
-              {errors?.branch?.type === "required" && (
+              {errors?.designation?.type === "required" && (
                 <p
                   style={{
                     color: "var(--notification-red)",
@@ -72,17 +70,18 @@ const SecondStep = () => {
                 </p>
               )}
             </div>
+
             <div className={styles.input__div}>
-              <span>{"Year of Passing*"}</span>
+              <span>{"Year of Experience*"}</span>
               <input
                 type={"number"}
-                placeholder={"Year of Passing"}
+                placeholder={"Year of Experience"}
                 className={styles.input}
-                {...register("year_of_passing", {
+                {...register("year_of_experience", {
                   required: true,
                 })}
               />
-              {errors?.year_of_passing?.type === "required" && (
+              {errors?.year_of_experience?.type === "required" && (
                 <p
                   style={{
                     color: "var(--notification-red)",
@@ -98,22 +97,8 @@ const SecondStep = () => {
           </div>
         </div>
         <div className={styles.form__button}>
-          <button className={styles.btn__next}>
-            Next{" "}
-            <i className={styles.btn__icn}>
-              <svg
-                width="9"
-                height="15"
-                viewBox="0 0 9 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.4998 14.625C1.17996 14.625 0.859961 14.509 0.616211 14.2771C0.12793 13.8132 0.12793 13.0617 0.616211 12.5979L5.98418 7.49995L0.616211 2.40112C0.12793 1.93726 0.12793 1.18579 0.616211 0.721924C1.10449 0.258057 1.89551 0.258057 2.38379 0.721924L8.63379 6.65942C9.12207 7.12329 9.12207 7.87476 8.63379 8.33862L2.38379 14.2761C2.13965 14.5099 1.81973 14.625 1.4998 14.625Z"
-                  fill="white"
-                />
-              </svg>
-            </i>
+          <button className={styles.button} type={"submit"}>
+            {"Next"}
           </button>
         </div>
       </form>
@@ -121,4 +106,4 @@ const SecondStep = () => {
   );
 };
 
-export default SecondStep;
+export default ThirdStep;

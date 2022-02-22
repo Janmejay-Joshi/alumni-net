@@ -3,10 +3,13 @@ import styles from "../../../styles/PageStyles/Complete_prof.module.scss";
 import BlobBackground from "../../../components/auth/BlobBackground";
 import Progress from "../../../components/auth/Progress/Progress";
 import FirstStep from "../../../components/auth/Steps/FirstStep";
+import SecondStep from "../../../components/auth/Steps/SecondStep";
+
 
 
 
 const complete_profile = () => {
+
  
 
   return (
@@ -19,7 +22,7 @@ const complete_profile = () => {
            <Progress />
           </div>
           <div className={styles.card__content}>
-            <FirstStep />
+            <FirstStep/>
           </div>
         </div>
       </div>

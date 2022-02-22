@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "../../../styles/PageStyles/Complete_prof.module.scss";
+ 
 
-interface SignupUnput {
+
+interface FirstStep {
   fname: string;
   email: string;
   phone: number;
@@ -15,10 +17,10 @@ const FirstStep = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignupUnput>();
+  } = useForm<FirstStep>();
   const emailVerifyRegex =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  const onSubmit: SubmitHandler<SignupUnput> = (formData) => {
+  const onSubmit: SubmitHandler<FirstStep> = (formData) => {
     console.log(formData);
   };
   return (
