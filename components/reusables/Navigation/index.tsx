@@ -6,6 +6,8 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
+import * as Go from 'react-icons/go';
+
 import Dropdown from "../../Nav/Dropdown";
 import Searchbox from "../../Nav/Searchbox";
 
@@ -113,7 +115,8 @@ export default function Navigation() {
       </div>
       <div className={styles.block5}>
         <div className={styles.searchicon}>
-          <FontAwesomeIcon icon={faMagnifyingGlass}
+          {/* <FontAwesomeIcon icon={faMagnifyingGlass} */}
+          <Go.GoSearch
           onClick={handleSearchClick}
           />
         </div>
