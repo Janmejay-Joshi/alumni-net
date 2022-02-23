@@ -99,7 +99,7 @@ export default function Chat() {
               {thread
                 ? thread.chat.map((data, index) => {
                     const time = new Date(data.timestamp);
-                    return data.userID == user?.uid ? (
+                    return data.uid != user.uid ? (
                       <div className={styles.chat_recive} key={index}>
                         <div className={styles.profile_pic_wraper}>
                           <img
