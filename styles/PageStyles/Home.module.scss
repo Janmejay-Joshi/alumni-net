@@ -1,31 +1,11 @@
-.container {
-  padding: 0 2rem;
-  min-height: 500vh;
-  width: 100vw;
+.container{
+  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.hero_wrapper{
-  filter: drop-shadow(0px -6px 10px rgba(0,0,0,0.75));
-
-  .hero{
-    clip-path: ellipse(93% 100% at 50% 0%);
-    display: block;
-    box-sizing: border-box;
-    height: 60vh;
-    padding: 4rem 0;
-    width: 100vw;
-    background-color: gray;
+  height: 100vh;
+  width: 100vw;
+  padding: 0 2rem;
+  @media only screen and (max-width: 1000px) {
+    padding: 0 0.5rem;
   }
-}
-
-.footer {
-  display: flex;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
 }
