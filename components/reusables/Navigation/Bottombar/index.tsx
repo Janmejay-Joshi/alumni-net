@@ -1,8 +1,8 @@
 import styles from "./Bottombar.module.scss";
-import * as Ai from "react-icons/ai";
-import * as Bs from "react-icons/bs";
-import * as Io from "react-icons/Io";
-import * as Fa from "react-icons/fa";
+import {AiFillHome} from "react-icons/ai";
+import {BsFillBellFill, BsChatLeftTextFill} from "react-icons/bs";
+import {IoIosAddCircle} from "react-icons/io";
+import { FaGraduationCap} from "react-icons/fa";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -14,19 +14,19 @@ const Bottombar = () => {
     <div className={styles.container}>
       
         <li className={router.pathname == "/" ? styles.active : ""}>
-          <Link href="/" ><Ai.AiFillHome /></Link>
+          <Link href="/" ><AiFillHome /></Link>
         </li>
         <li className={router.pathname == "/notice" ? styles.active : ""}>
-          <Link href="/notice"><Bs.BsFillBellFill /></Link>
+          <Link href="/notice"><BsFillBellFill /></Link>
         </li>
         <li className={router.pathname == "/a" ? "active" : ""}>
-          <Link href="/a"><Io.IoIosAddCircle /></Link>
+          <Link href="/a"><IoIosAddCircle /></Link>
         </li>
         <li className={router.pathname == "/b" ? "active" : ""}>
-          <Link href="/b"><Fa.FaGraduationCap /></Link>
+          <Link href="/b"><FaGraduationCap /></Link>
         </li>
         <li className={router.pathname == "/c" ? "active" : ""}>
-          <Link href="/c"><Bs.BsChatLeftTextFill /></Link>
+          <Link href="/c"><BsChatLeftTextFill /></Link>
         </li>
 
         

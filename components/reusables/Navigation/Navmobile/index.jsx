@@ -1,5 +1,5 @@
 import styles from "./Navmobile.module.scss";
-import { GiHamburgerMenu } from "react-icons/Gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import { useState } from "react";
 

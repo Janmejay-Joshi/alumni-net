@@ -103,8 +103,8 @@ export default function Chat() {
                       <div className={styles.chat_recive} key={index}>
                         <div className={styles.profile_pic_wraper}>
                           <img
-                            src={"https://picsum.photos/seed/ipsum/80/80"}
-                            alt="College"
+                            src={data.profile_pic}
+                            alt="Profile Pic"
                             className={styles.profile_pic}
                           />
                         </div>
@@ -125,8 +125,8 @@ export default function Chat() {
                         </div>
                         <div className={styles.profile_pic_wraper}>
                           <img
-                            src={"https://picsum.photos/seed/lorem/80/80"}
-                            alt="College"
+                            src={data.profile_pic}
+                            alt="Profile Pic"
                             className={styles.profile_pic}
                           />
                         </div>
