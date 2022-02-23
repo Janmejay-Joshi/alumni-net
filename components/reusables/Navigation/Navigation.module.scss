@@ -1,10 +1,8 @@
 .container {
-  // position: absolute;
   width: 100vw;
-  height: 80px;
+  height: 65px;
   left: 0px;
   top: 0px;
-  border: solid;
   z-index: 1;
   position: fixed;
   background-color: var(--white);
@@ -12,10 +10,13 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1fr 1.5fr;
 
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03);
+
   .block1 {
   }
   .block2,
   .block4 {
+    
     color: var(--slate-grey);
     display: flex;
     flex-direction: row;
@@ -23,8 +24,23 @@
     align-items: center;
     font-family: montserrat;
     font-weight: 400;
+    gap: 5px;
+
+
+    .navitem{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      
+      &__active{
+        border-top: solid;
+        color: var(--brand-blue);
+      }
+    }
   }
   .block3 {
+    margin-left: 15px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -34,9 +50,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 20px;
 
-    .searchicon{
+    .searchicon {
       margin-right: 12px;
       font-family: montserrat;
       font-weight: 100;
@@ -45,8 +61,6 @@
     }
 
     .profile {
-     
-
       .profilepic {
         cursor: pointer;
         height: 48px;
