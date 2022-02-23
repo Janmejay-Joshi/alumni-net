@@ -8,7 +8,6 @@ import {
 } from "firebase/auth";
 import { query, getDocs, collection, where, addDoc } from "firebase/firestore";
 import { auth, db } from ".";
-import { useAuthState as _useAuthState } from "react-firebase-hooks/auth";
 
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
