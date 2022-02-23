@@ -53,7 +53,7 @@ const getThreadList = async (title: string) => {
 export type ThreadID = string;
 
 export interface Chat {
-  userID: string;
+  uid: string;
   profile_pic: string;
   message?: string;
   imageURL?: string;

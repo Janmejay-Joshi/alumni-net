@@ -99,12 +99,12 @@ export default function Chat() {
               {thread
                 ? thread.chat.map((data, index) => {
                     const time = new Date(data.timestamp);
-                    return data.userID == user?.uid ? (
+                    return data.uid != user.uid ? (
                       <div className={styles.chat_recive} key={index}>
                         <div className={styles.profile_pic_wraper}>
                           <img
-                            src={"https://picsum.photos/seed/ipsum/80/80"}
-                            alt="College"
+                            src={data.profile_pic}
+                            alt="Profile Pic"
                             className={styles.profile_pic}
                           />
                         </div>
@@ -125,8 +125,8 @@ export default function Chat() {
                         </div>
                         <div className={styles.profile_pic_wraper}>
                           <img
-                            src={"https://picsum.photos/seed/lorem/80/80"}
-                            alt="College"
+                            src={data.profile_pic}
+                            alt="Profile Pic"
                             className={styles.profile_pic}
                           />
                         </div>
