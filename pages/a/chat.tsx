@@ -15,7 +15,7 @@ export default function Chat() {
   const [threadID, setThreadID] = useState<ThreadID>("xDBMQLtLa2D0JsoY9Dql");
   const [thread, setThread] = useState<Thread>();
   const [user, loading, error] = useAuthState(auth);
-  const messagesEndRef = useRef<HTMLDivElement>();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -37,9 +37,9 @@ export default function Chat() {
   } = useForm<MessageInput>();
 
   const scrollToBottom = () => {
-    messagesEndRef.current.scrollIntoView({
+    messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
-      block: "start",
+      block: "end",
     });
   };
 
@@ -103,45 +103,53 @@ export default function Chat() {
         </div>
         <div className={styles.chat_container}>
           <div className={styles.chat_wraper}>
-            <div className={styles.chat_box} ref={messagesEndRef}>
-              {thread && user
-                ? thread.chat.map((data, index) => {
-                    const time = new Date(data.timestamp);
-                    return data.uid != user.uid ? (
-                      <div className={styles.chat_recive} key={index}>
-                        <div className={styles.profile_pic_wraper}>
-                          <img
-                            src={data.profile_pic}
-                            alt="Profile Pic"
-                            className={styles.profile_pic}
-                          />
-                        </div>
-                        <div className={styles.message_wraper}>
-                          <div className={styles.message}>{data.message}</div>
-                          <span className={styles.timestamp}>
-                            {time.toLocaleTimeString()}
-                          </span>
-                        </div>
+            <div className={styles.chat_box}>
+              {thread && user ? (
+                thread.chat.map((data, index) => {
+                  const time = new Date(data.timestamp);
+                  return data.uid != user.uid ? (
+                    <div className={styles.chat_recive} key={index}>
+                      <div className={styles.profile_pic_wraper}>
+                        <img
+                          src={data.profile_pic}
+                          alt="Profile Pic"
+                          className={styles.profile_pic}
+                        />
                       </div>
-                    ) : (
-                      <div className={styles.chat_sent} key={index}>
-                        <div className={styles.message_wraper}>
-                          <div className={styles.message}>{data.message}</div>
-                          <span className={styles.timestamp}>
-                            {time.toLocaleTimeString()}
-                          </span>
-                        </div>
-                        <div className={styles.profile_pic_wraper}>
-                          <img
-                            src={data.profile_pic}
-                            alt="Profile Pic"
-                            className={styles.profile_pic}
-                          />
-                        </div>
+                      <div className={styles.message_wraper}>
+                        <div className={styles.message}>{data.message}</div>
+                        <span className={styles.timestamp}>
+                          {time.toLocaleTimeString()}
+                        </span>
                       </div>
-                    );
-                  })
-                : <h2>{"User Not Logged In"}</h2>}
+                    </div>
+                  ) : (
+                    <div
+                      className={styles.chat_sent}
+                      key={index}
+                    >
+                      <div className={styles.message_wraper}>
+                        <div className={styles.message}>{data.message}</div>
+                        <span className={styles.timestamp}>
+                          {time.toLocaleTimeString()}
+                        </span>
+                      </div>
+                      <div
+                        className={styles.profile_pic_wraper} 
+                        ref={messagesEndRef}
+                      >
+                        <img
+                          src={data.profile_pic}
+                          alt="Profile Pic"
+                          className={styles.profile_pic}
+                        />
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <h2>{"User Not Logged In"}</h2>
+              )}
             </div>
             <div className={styles.textbar_wraper}>
               <form
