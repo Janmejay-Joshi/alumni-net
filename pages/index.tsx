@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import styles from "../styles/PageStyles/Hero.module.scss";
 
+
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -19,7 +21,8 @@ const Home: NextPage = () => {
         <div className={styles.signup}></div>
       </main>
 
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>
+      </footer>
     </div>
   );
 };

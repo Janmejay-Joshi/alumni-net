@@ -1,7 +1,7 @@
 import styles from "./Bottombar.module.scss";
 import * as Ai from "react-icons/ai";
 import * as Bs from "react-icons/bs";
-import * as Io from "react-icons/Io";
+import * as Io from "react-icons/io";
 import * as Fa from "react-icons/fa";
 
 import { useRouter } from "next/router";
