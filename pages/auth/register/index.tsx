@@ -44,7 +44,7 @@ export default function Login() {
   useEffect(() => {
     if (loading) return;
     console.log(user);
-    if (user) router.push("/auth/register/c/complete_profile/");
+    if (user) router.push("/auth/register/a/complete_profile/");
     if (error) console.log(error);
   }, [loading, user, error]);
 
