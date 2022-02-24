@@ -1,5 +1,5 @@
 import { doc, onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Navigation from "../../components/reusables/Navigation";
@@ -15,6 +15,7 @@ export default function Chat() {
   const [threadID, setThreadID] = useState<ThreadID>("xDBMQLtLa2D0JsoY9Dql");
   const [thread, setThread] = useState<Thread>();
   const [user, loading, error] = useAuthState(auth);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -35,9 +36,16 @@ export default function Chat() {
     formState: { errors },
   } = useForm<MessageInput>();
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+    });
+  };
+
   const onSubmit = (data: MessageInput) => {
-    if (user != null) {
-      console.log(data.message);
+    if (user != null && data.message.length > 0) {
+      console.log(data.message.length);
       postMessage(threadID, data.message, user);
     }
   };
@@ -96,44 +104,52 @@ export default function Chat() {
         <div className={styles.chat_container}>
           <div className={styles.chat_wraper}>
             <div className={styles.chat_box}>
-              {thread
-                ? thread.chat.map((data, index) => {
-                    const time = new Date(data.timestamp);
-                    return data.uid != user.uid ? (
-                      <div className={styles.chat_recive} key={index}>
-                        <div className={styles.profile_pic_wraper}>
-                          <img
-                            src={data.profile_pic}
-                            alt="Profile Pic"
-                            className={styles.profile_pic}
-                          />
-                        </div>
-                        <div className={styles.message_wraper}>
-                          <div className={styles.message}>{data.message}</div>
-                          <span className={styles.timestamp}>
-                            {time.toLocaleTimeString()}
-                          </span>
-                        </div>
+              {thread && user ? (
+                thread.chat.map((data, index) => {
+                  const time = new Date(data.timestamp);
+                  return data.uid != user.uid ? (
+                    <div className={styles.chat_recive} key={index}>
+                      <div className={styles.profile_pic_wraper}>
+                        <img
+                          src={data.profile_pic}
+                          alt="Profile Pic"
+                          className={styles.profile_pic}
+                        />
                       </div>
-                    ) : (
-                      <div className={styles.chat_sent} key={index}>
-                        <div className={styles.message_wraper}>
-                          <div className={styles.message}>{data.message}</div>
-                          <span className={styles.timestamp}>
-                            {time.toLocaleTimeString()}
-                          </span>
-                        </div>
-                        <div className={styles.profile_pic_wraper}>
-                          <img
-                            src={data.profile_pic}
-                            alt="Profile Pic"
-                            className={styles.profile_pic}
-                          />
-                        </div>
+                      <div className={styles.message_wraper}>
+                        <div className={styles.message}>{data.message}</div>
+                        <span className={styles.timestamp}>
+                          {time.toLocaleTimeString()}
+                        </span>
                       </div>
-                    );
-                  })
-                : null}
+                    </div>
+                  ) : (
+                    <div
+                      className={styles.chat_sent}
+                      key={index}
+                    >
+                      <div className={styles.message_wraper}>
+                        <div className={styles.message}>{data.message}</div>
+                        <span className={styles.timestamp}>
+                          {time.toLocaleTimeString()}
+                        </span>
+                      </div>
+                      <div
+                        className={styles.profile_pic_wraper} 
+                        ref={messagesEndRef}
+                      >
+                        <img
+                          src={data.profile_pic}
+                          alt="Profile Pic"
+                          className={styles.profile_pic}
+                        />
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <h2>{"User Not Logged In"}</h2>
+              )}
             </div>
             <div className={styles.textbar_wraper}>
               <form
@@ -146,7 +162,11 @@ export default function Chat() {
                   form="textbar"
                   {...register("message")}
                 ></textarea>
-                <input className={styles.send} type="submit" />
+                <input
+                  className={styles.send}
+                  type="submit"
+                  onClick={scrollToBottom}
+                />
               </form>
             </div>
           </div>
