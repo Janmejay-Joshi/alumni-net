@@ -23,6 +23,7 @@ export default function Chat() {
       (snapshot: any) => {
         const updatedThread = snapshot.data();
         setThread(updatedThread);
+        scrollToBottom()
       },
       (error: any) => console.log(error)
     );
@@ -124,10 +125,7 @@ export default function Chat() {
                       </div>
                     </div>
                   ) : (
-                    <div
-                      className={styles.chat_sent}
-                      key={index}
-                    >
+                    <div className={styles.chat_sent} key={index} >
                       <div className={styles.message_wraper}>
                         <div className={styles.message}>{data.message}</div>
                         <span className={styles.timestamp}>
@@ -136,7 +134,6 @@ export default function Chat() {
                       </div>
                       <div
                         className={styles.profile_pic_wraper} 
-                        ref={messagesEndRef}
                       >
                         <img
                           src={data.profile_pic}
@@ -150,6 +147,7 @@ export default function Chat() {
               ) : (
                 <h2>{"User Not Logged In"}</h2>
               )}
+              <div ref={messagesEndRef}/>
             </div>
             <div className={styles.textbar_wraper}>
               <form
