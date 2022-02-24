@@ -61,10 +61,11 @@ export default function Chat() {
 
   /// TODO: Add Text Remove and Date Pills
   /// TODO: Multiple Threads and Thread Select
-  /// TODO: Thread Info 
+  /// TODO: Thread Info
   /// TODO: Different timestamp Views
   /// TODO: Mobile Views and Stylings
   /// TODO: Images
+  /// TODO: User Connect
 
   console.log(thread);
 
