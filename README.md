@@ -4,6 +4,8 @@ An Online portal for connecting Alumnus from The Directorate of Higher Education
 
 
 
+
+
 # Index	
 
 1.  [Problem Statement](#Problem Statement)
@@ -68,6 +70,7 @@ a web based application for colleges and the Directorate to keep a track of the 
 - [ ] Comments
 - [ ] Likes
 - [ ] Dynamic @ Redirects
+- [ ] Donation via Razor and anonymous vs known donations
 
 
 
