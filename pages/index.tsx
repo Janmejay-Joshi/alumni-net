@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import styles from "../styles/PageStyles/Hero.module.scss";
 
-
-
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>

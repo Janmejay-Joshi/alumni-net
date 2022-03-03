@@ -9,6 +9,7 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Navigation from "../../components/reusables/Navigation";
+import Img from "../../components/reusables/Img";
 import { auth, db } from "../../firebase";
 import { Thread, ThreadID, postMessage } from "../../firebase/chatFunctions";
 import styles from "../../styles/PageStyles/Chat.module.scss";
@@ -123,45 +124,10 @@ export default function Chat() {
             <div className={styles.chat_box}>
               {thread && user ? (
                 thread.chat.map((data, index) => {
-                  const time = new Date(data.timestamp);
                   return data.uid != user.uid ? (
-                    <div className={styles.chat_recive} key={index}>
-                      <div className={styles.profile_pic_wraper}>
-                        <img
-                          src={data.profile_pic}
-                          alt="Profile Pic"
-                          className={styles.profile_pic}
-                        />
-                      </div>
-                      <div className={styles.message_wraper}>
-                        <div className={styles.message}>{data.message}</div>
-                        <span className={styles.timestamp}>
-                          {time.toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </span>
-                      </div>
-                    </div>
+                    <ChatRecive data={data} key={index} />
                   ) : (
-                    <div className={styles.chat_sent} key={index}>
-                      <div className={styles.message_wraper}>
-                        <div className={styles.message}>{data.message}</div>
-                        <span className={styles.timestamp}>
-                          {time.toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </span>
-                      </div>
-                      <div className={styles.profile_pic_wraper}>
-                        <img
-                          src={data.profile_pic}
-                          alt="Profile Pic"
-                          className={styles.profile_pic}
-                        />
-                      </div>
-                    </div>
+                    <ChatSent data={data} key={index} />
                   );
                 })
               ) : (
@@ -191,6 +157,54 @@ export default function Chat() {
           </div>
         </div>
       </main>
+    </div>
+  );
+}
+
+function ChatRecive({ data }: { data }) {
+  const time = new Date(data.timestamp);
+  return (
+    <div className={styles.chat_recive}>
+      <div className={styles.profile_pic_wraper}>
+        <Img
+          src={data.profile_pic}
+          alt="Profile Pic"
+          className={styles.profile_pic}
+        />
+      </div>
+      <div className={styles.message_wraper}>
+        <div className={styles.message}>{data.message}</div>
+        <span className={styles.timestamp}>
+          {time.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function ChatSent({ data }: { data }) {
+  const time = new Date(data.timestamp);
+  return (
+    <div className={styles.chat_sent}>
+      <div className={styles.message_wraper}>
+        <div className={styles.message}>{data.message}</div>
+        <span className={styles.timestamp}>
+          {time.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </span>
+      </div>
+      <div className={styles.profile_pic_wraper}>
+        <Img
+          src={data.profile_pic}
+          alt="Profile Pic"
+          className={styles.profile_pic}
+        />
+      </div>
     </div>
   );
 }
