@@ -3,11 +3,7 @@ import type { AppProps } from "next/app";
 import Navigation from "../components/reusables/Navigation";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (<>
-  <Navigation />
-  <Component {...pageProps} />;
-  </>
-  )
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
