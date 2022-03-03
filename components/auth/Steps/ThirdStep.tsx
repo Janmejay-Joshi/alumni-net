@@ -8,8 +8,7 @@ interface ThirdStep {
   year_of_experience: number;
 }
 
-const ThirdStep = ({register,handleSubmit,errors}: any) => {
-  
+const ThirdStep = ({ register, handleSubmit, errors }: any) => {
   return (
     <>
       <div className={styles.form__contaienr}>

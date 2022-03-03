@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../../../styles/PageStyles/Complete_prof.module.scss";
+import styles from "../../../../styles/PageStyles/Auth/CompleteProfile.module.scss";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import BlobBackground from "../../../../components/auth/BlobBackground";
@@ -21,7 +21,7 @@ interface FormSchema {
   designation: string;
   year_of_experience: number;
 }
-const complete_profile = () => {
+export default function CompleteProfile() {
   const [step, setStep] = useState(0);
 
   const FormTitle = ["Step 1", "Step 2", "Step 3"];
@@ -76,7 +76,7 @@ const complete_profile = () => {
       <div className={styles.container}>
         <div className={styles.card}>
           <div className={styles.card_head}>
-            <Progress steps={FormTitle}/>
+            <Progress steps={FormTitle} />
           </div>
           <div className={styles.card__content}>
             <h2 className={styles.content__title}>{FormTitle[step]}</h2>
@@ -85,25 +85,23 @@ const complete_profile = () => {
               {DisplayStep()}
               <div className={styles.btn__container}>
                 <button
-                style={step === 0 ? {display: "none"} : {display: "block"}}
+                  style={
+                    step === 0 ? { display: "none" } : { display: "block" }
+                  }
                   disabled={step === 0}
                   onClick={() => setStep((currStep) => currStep - 1)}
                   className={styles.btn__next}
                 >
                   Back{" "}
-                  
                 </button>
                 <button
-                  
                   onClick={() => {
-                    if(step === FormTitle.length - 1){
+                    if (step === FormTitle.length - 1) {
                       handleSubmit(onSubmit);
+                    } else {
+                      setStep((currStep: number) => currStep + 1);
                     }
-                    else{
-
-                      setStep((currStep: number) => currStep + 1)
-                    }
-                    }}
+                  }}
                   className={styles.btn__next}
                 >
                   {step === FormTitle.length - 1 ? "Submit" : "Next"}
@@ -115,6 +113,4 @@ const complete_profile = () => {
       </div>
     </>
   );
-};
-
-export default complete_profile;
+}

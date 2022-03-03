@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../../../styles/PageStyles/CollegeReg.module.scss";
+import styles from "../../../../styles/PageStyles/Auth/CollegeReg.module.scss";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import BlobBackground from "../../../../components/auth/BlobBackground";
@@ -12,15 +12,13 @@ interface FormSchema {
   branches: string;
   college_website: string;
 }
-const complete_profile = () => {
-  
-  
-
+const CompleteProfile = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormSchema>();
+
   const onSubmit: SubmitHandler<FormSchema> = (formData) => {
     console.log(formData);
   };
@@ -184,7 +182,9 @@ const complete_profile = () => {
               </div>
 
               <div className={styles.btn__container}>
-                <button className={styles.submit__btn} type="submit">{"Submit"}</button>
+                <button className={styles.submit__btn} type="submit">
+                  {"Submit"}
+                </button>
               </div>
             </form>
           </div>
@@ -194,4 +194,4 @@ const complete_profile = () => {
   );
 };
 
-export default complete_profile;
+export default CompleteProfile;

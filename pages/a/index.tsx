@@ -15,7 +15,7 @@ export default function Chat() {
     if (loading) return;
     if (!user) router.push("/auth/login/");
     if (error) console.log(error);
-  }, [loading, user, error]);
+  }, [loading, user, error, router]);
 
   return user ? (
     <div className={styles.container}>

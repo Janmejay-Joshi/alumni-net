@@ -35,7 +35,7 @@ export default function Chat() {
       (error: any) => console.log(error)
     );
     return unsubscribe;
-  }, []);
+  }, [threadID]);
 
   const {
     register,
