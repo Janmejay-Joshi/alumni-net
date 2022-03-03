@@ -13,7 +13,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../../../firebase/authFunctions";
-import styles from "../../../styles/PageStyles/Login.module.scss";
+import styles from "../../../styles/PageStyles/Auth/Login.module.scss";
 
 interface RegisterInput {
   name: string;
@@ -43,10 +43,9 @@ export default function Login() {
 
   useEffect(() => {
     if (loading) return;
-    console.log(user);
-    if (user) router.push("/auth/register/a/complete_profile/");
+    if (user) router.replace("/a/");
     if (error) console.log(error);
-  }, [loading, user, error]);
+  }, [loading, user, error, router]);
 
   return (
     <>

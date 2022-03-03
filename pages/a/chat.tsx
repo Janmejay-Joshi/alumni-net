@@ -1,5 +1,11 @@
 import { doc, onSnapshot } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react";
+import {
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Navigation from "../../components/reusables/Navigation";
@@ -16,6 +22,7 @@ export default function Chat() {
   const [thread, setThread] = useState<Thread>();
   const [user, loading, error] = useAuthState(auth);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textBoxRef = useRef(null);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -23,12 +30,12 @@ export default function Chat() {
       (snapshot: any) => {
         const updatedThread = snapshot.data();
         setThread(updatedThread);
-        scrollToBottom()
+        scrollToBottom();
       },
       (error: any) => console.log(error)
     );
     return unsubscribe;
-  }, []);
+  }, [threadID]);
 
   const {
     register,
@@ -48,8 +55,17 @@ export default function Chat() {
     if (user != null && data.message.length > 0) {
       console.log(data.message.length);
       postMessage(threadID, data.message, user);
+      // textBoxRef.current.value = ''
     }
   };
+
+  /// TODO: Add Text Remove and Date Pills
+  /// TODO: Multiple Threads and Thread Select
+  /// TODO: Thread Info
+  /// TODO: Different timestamp Views
+  /// TODO: Mobile Views and Stylings
+  /// TODO: Images
+  /// TODO: User Connect
 
   console.log(thread);
 
@@ -120,21 +136,25 @@ export default function Chat() {
                       <div className={styles.message_wraper}>
                         <div className={styles.message}>{data.message}</div>
                         <span className={styles.timestamp}>
-                          {time.toLocaleTimeString()}
+                          {time.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </span>
                       </div>
                     </div>
                   ) : (
-                    <div className={styles.chat_sent} key={index} >
+                    <div className={styles.chat_sent} key={index}>
                       <div className={styles.message_wraper}>
                         <div className={styles.message}>{data.message}</div>
                         <span className={styles.timestamp}>
-                          {time.toLocaleTimeString()}
+                          {time.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </span>
                       </div>
-                      <div
-                        className={styles.profile_pic_wraper} 
-                      >
+                      <div className={styles.profile_pic_wraper}>
                         <img
                           src={data.profile_pic}
                           alt="Profile Pic"
@@ -147,7 +167,7 @@ export default function Chat() {
               ) : (
                 <h2>{"User Not Logged In"}</h2>
               )}
-              <div ref={messagesEndRef}/>
+              <div ref={messagesEndRef} />
             </div>
             <div className={styles.textbar_wraper}>
               <form
@@ -164,6 +184,7 @@ export default function Chat() {
                   className={styles.send}
                   type="submit"
                   onClick={scrollToBottom}
+                  ref={textBoxRef}
                 />
               </form>
             </div>

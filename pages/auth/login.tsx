@@ -13,7 +13,7 @@ import {
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from "../../firebase/authFunctions";
-import styles from "../../styles/PageStyles/Login.module.scss";
+import styles from "../../styles/PageStyles/Auth/Login.module.scss";
 
 interface LoginInput {
   email: string;
@@ -30,7 +30,6 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<LoginInput>();
 
@@ -42,9 +41,9 @@ export default function Login() {
 
   useEffect(() => {
     if (loading) return;
-    // if (user) router.replace("/");
+    if (user) router.replace("/a/");
     if (error) console.log(error);
-  }, [loading, user, error]);
+  }, [loading, user, error, router]);
 
   return (
     <>
