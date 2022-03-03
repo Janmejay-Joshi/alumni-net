@@ -24,25 +24,8 @@ export default function Navdesktop() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.block1}></div>
-      <div className={styles.block2}>
-        <div
-          className={`${styles.navitem} ${
-            router.pathname == "/" ? styles.navitem__active : ""
-          }`}
-        >
-          <Link href="/">Home</Link>
-        </div>
-        <div
-          className={`${styles.navitem} ${
-            router.pathname == "/notice" ? styles.navitem__active : ""
-          }`}
-        >
-          <Link href="/notice">Notification</Link>
-        </div>
-      </div>
-      <div className={styles.block3}>
-        <svg
+      <div className={styles.block_logo}>
+      <svg
           width="200"
           height="33"
           viewBox="0 0 200 33"
@@ -70,23 +53,37 @@ export default function Navdesktop() {
           </defs>
         </svg>
       </div>
-      <div className={styles.block4}>
+      <div className={styles.block_menu}>
         <div
           className={`${styles.navitem} ${
             router.pathname == "/" ? styles.navitem__active : ""
+          }`}
+        >
+          <Link href="/">Home</Link>
+        </div>
+        <div
+          className={`${styles.navitem} ${
+            router.pathname == "/notice" ? styles.navitem__active : ""
+          }`}
+        >
+          <Link href="/notice">Notices</Link>
+        </div>
+        <div
+          className={`${styles.navitem} ${
+            router.pathname == "/a" ? styles.navitem__active : ""
           }`}
         >
           <Link href="/">Colleges</Link>
         </div>
         <div
           className={`${styles.navitem} ${
-            router.pathname == "/" ? styles.navitem__active : ""
+            router.pathname == "/a/chat" ? styles.navitem__active : ""
           }`}
         >
-          <Link href="/">Messenger</Link>
+          <Link href="/a/chat">Messenger</Link>
         </div>
       </div>
-      <div className={styles.block5}>
+      <div className={styles.block_profile}>
         <div className={styles.searchicon}>
           <Go.GoSearch onClick={handleSearchClick} />
         </div>

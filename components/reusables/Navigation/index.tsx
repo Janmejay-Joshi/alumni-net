@@ -3,8 +3,6 @@ import styles from "./Navigation.module.scss";
 
 import { useRouter } from "next/router";
 
-
-import Bottombar from "./Bottombar";
 import Navdesktop from "./Navdesktop";
 import Navmobile from "./Navmobile";
 
@@ -34,10 +32,7 @@ export default function Navigation() {
   return (
     <div className={styles.container}>
       {isMobile ? (
-        <>
         <Navmobile />
-        <Bottombar />
-        </>
       ) : (
         <Navdesktop />
       )}

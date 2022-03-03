@@ -1,15 +1,9 @@
 import styles from "./Bottombar.module.scss";
-<<<<<<< HEAD
-import * as Ai from "react-icons/ai";
-import * as Bs from "react-icons/bs";
-import * as Io from "react-icons/io";
-import * as Fa from "react-icons/fa";
-=======
 import {AiFillHome} from "react-icons/ai";
 import {BsFillBellFill, BsChatLeftTextFill} from "react-icons/bs";
 import {IoIosAddCircle} from "react-icons/io";
 import { FaGraduationCap} from "react-icons/fa";
->>>>>>> b3555265eec427eb4eb07ef6b429966f8b7fe638
+
 
 import { useRouter } from "next/router";
 import Link from "next/link";

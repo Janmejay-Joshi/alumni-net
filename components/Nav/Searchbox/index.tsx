@@ -5,10 +5,10 @@ import styles from './Searchbox.module.scss';
 const Searchbox=()=>{
 const [value, setValue] = useState("");
 
-  function handleChange(e) {
+  function handleChange(e:any) {
     setValue(e.target.value);
   }
-  function handleSubmit(e) {
+  function handleSubmit(e:any) {
     e.preventDefault();
     console.log(value);
   }
@@ -16,7 +16,7 @@ const [value, setValue] = useState("");
     return(
         <>
         <div className={styles.searchbox}>
-            <input className={styles.input_search} type="text" placeholder="Search.." onChange={handleChange} onSubmit={handleSubmit}>
+            <input className={styles.input_search} type="text" placeholder="Search.." value={value} onChange={handleChange} onSubmit={handleSubmit}>
 
             </input>
         </div>

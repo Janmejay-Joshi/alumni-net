@@ -7,16 +7,21 @@
     position: fixed;
     background-color: var(--white);
   
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr 1fr 1.5fr;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
   
     // box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03);
   
-    .block1 {
+    .block_logo {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
     }
-    .block2,
-    .block4 {
-      
+    
+    .block_menu{
       color: var(--slate-grey);
       display: flex;
       flex-direction: row;
@@ -24,7 +29,8 @@
       align-items: center;
       font-family: montserrat;
       font-weight: 400;
-      gap: 5px;
+      gap: 2rem;
+      padding-right: 3rem;
   
   
       .navitem{
@@ -39,14 +45,8 @@
         }
       }
     }
-    .block3 {
-      margin-left: 15px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-    .block5 {
+    
+    .block_profile {
       display: flex;
       justify-content: flex-end;
       align-items: center;

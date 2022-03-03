@@ -14,7 +14,6 @@ const Notice: NextPage = () => {
   });
   return (
     <>
-      <Navigation />
     </>
   );
 };
