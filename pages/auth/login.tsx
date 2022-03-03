@@ -42,7 +42,7 @@ export default function Login() {
 
   useEffect(() => {
     if (loading) return;
-    // if (user) router.replace("/");
+    if (user) router.replace("/a/");
     if (error) console.log(error);
   }, [loading, user, error]);
 

@@ -1,4 +1,5 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import PostCard from "../../components/home/PostCard";
 import Navigation from "../../components/reusables/Navigation";
@@ -7,6 +8,14 @@ import styles from "../../styles/PageStyles/Home.module.scss";
 
 export default function Chat() {
   const [user, loading, error] = useAuthState(auth);
+  const router = useRouter();
+  console.log(user);
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) router.push("/auth/login/");
+    if (error) console.log(error);
+  }, [loading, user, error]);
 
   return user ? (
     <div className={styles.container}>
@@ -62,13 +71,41 @@ export default function Chat() {
         <section className={styles.post_section}>
           <div className={styles.post}>{"What's on your Mind?"}</div>
           <div className={styles.feed}>
-
-        <PostCard/>
+            <PostCard />
           </div>
         </section>
         <section className={styles.event_know_section}>
+          <div className={styles.noticeboard}>
+            <div
+              className={styles.notice}
+              style={{
+                backgroundImage: `url("https://picsum.photos/seed/sasddm/250/250")`,
+              }}
+            ></div>
+
+            <div
+              className={styles.notice}
+              style={{
+                backgroundImage: `url("https://picsum.photos/seed/ssddm/250/250")`,
+              }}
+            ></div>
+          </div>
+
+          <div className={styles.suggestion_container}>
+            <div className={styles.title}>Who To Follow</div>
+            <div className={styles.suggestion_list}>
+              <div className={styles.suggestion}></div>
+              <div className={styles.suggestion}></div>
+            </div>
+          </div>
+
+          <div className={styles.info_footer}>
+            {
+              "Privacy  .  Terms  .  Advertising  .  Ad Choices  .  Cookies  .  More  .  Facebook © 2020"
+            }
+          </div>
         </section>
       </main>
     </div>
-  ) : loading ? null : null;
+  ) : loading ? (<h2>loading</h2>) : null;
 }

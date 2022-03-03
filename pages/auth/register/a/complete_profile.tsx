@@ -36,6 +36,7 @@ const complete_profile = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormSchema>();
+
   const onSubmit: SubmitHandler<FormSchema> = (formData) => {
     console.log(formData);
   };
