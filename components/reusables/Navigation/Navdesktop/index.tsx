@@ -4,14 +4,17 @@ import styles from "./Navdesktop.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import * as Go from "react-icons/go";
+import {GoSearch} from "react-icons/go";
 
-import Dropdown from "../../../Nav/Dropdown";
-import Searchbox from "../../../Nav/Searchbox";
+import Dropdown from "../Nav/Dropdown";
+import Searchbox from "../Nav/Searchbox";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../../firebase";
 
 export default function Navdesktop() {
   const [dropdown, setDropdown] = useState(false);
   const [searchbox, setSearchbox] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
 
   const router = useRouter();
 
@@ -34,18 +37,18 @@ export default function Navdesktop() {
             router.pathname == "/" ? styles.navitem__active : ""
           }`}
         >
-          <Link href="/">Home</Link>
+          <Link href="/a">Home</Link>
         </div>
         <div
           className={`${styles.navitem} ${
-            router.pathname == "/notice" ? styles.navitem__active : ""
+            router.pathname == "/a/explore" ? styles.navitem__active : ""
           }`}
         >
           <Link href="/notice">Notices</Link>
         </div>
         <div
           className={`${styles.navitem} ${
-            router.pathname == "/a" ? styles.navitem__active : ""
+            router.pathname == "/a/notice" ? styles.navitem__active : ""
           }`}
         >
           <Link href="/">Colleges</Link>
@@ -60,11 +63,11 @@ export default function Navdesktop() {
       </div>
       <div className={styles.block_profile}>
         <div className={styles.searchicon}>
-          <Go.GoSearch onClick={handleSearchClick} />
+          <GoSearch onClick={handleSearchClick} />
         </div>
         <div className={styles.profile}>
           <img
-            src="/assets/images/Nav/profile.svg"
+            src={user?.photoURL}
             className={styles.profilepic}
             onClick={handleProfileClick}
             alt="profilepic"
