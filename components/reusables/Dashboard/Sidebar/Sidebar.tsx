@@ -1,38 +1,81 @@
-import React ,{useState}from 'react'
-import styles from './Sidebar.module.scss'
-import  data  from "./Data"
-import Link from 'next/link'
-import {GiHamburgerMenu} from 'react-icons/gi'
-import {IoIosArrowBack} from 'react-icons/io'
+import React, { useState } from "react";
+import styles from "./Sidebar.module.scss";
+import data from "./Data";
+import Link from "next/link";
+import { GiHamburgerMenu, GiRamProfile } from "react-icons/gi";
+import { IoIosArrowBack, IoIosArrowForward, IoMdNotificationsOutline } from "react-icons/io";
+import { GrContactInfo } from "react-icons/gr";
+import { AiOutlineProfile, AiOutlineTeam } from "react-icons/ai";
+import { BsFilePost } from "react-icons/bs";
+import { FaDonate } from "react-icons/fa";
+import { CgDetailsMore } from "react-icons/cg";
 
-type SidebarProps = {
-  isOpen: boolean,
-  toggleSidebar: () => void
-}
+const Sidebar = () => {
+  const [active, setActive] = useState(false);
 
+  const toggleActive = () =>{
+    setActive(!active);
 
-const Sidebar = ({isOpen , toggleSidebar} : SidebarProps) => {
+  }
   return (
-    <div className={styles.container} style={{ }}>
-      <div className={`${styles.IconContainer}`}>
+    <>
+      <nav className={styles.sidebar} style={!active ? {width: "4rem"} : {} }>
+        <header>
+        <div className={styles.header__text} style={!active ? {display: "none"} : {} }>
+          <span className={styles.header__text__title}>Alumni-Connect</span>
+        </div>
 
-    {isOpen ? <GiHamburgerMenu /> : <IoIosArrowBack />}
-      </div>
-      <h1 className={styles.heading}>DASHBOARD</h1>
-
-
-      {data.map((item) => {
-        return (
-          <div key={item.id} className={styles.sidebar__item}>
-            <div className={styles.sidebar__item__text}>
-              <Link href={item.path}><p>{item.name}</p></Link>
-            </div>
+          <div className={styles.header__icon}  onClick={() => toggleActive()}>
+           { active ? <IoIosArrowBack /> : <IoIosArrowForward />}
           </div>
-        )
-      })
-    }    
-    </div>
-  )
-}
+        </header>
+        <div className={styles.nav_menu}>
+          <div className={styles.menu}>
+            <ul className={styles.nav_links}>
+              <li className={styles.nav_link}>
+                  <CgDetailsMore className={styles.icons} style={!active ? {position:  "relative", left :"-3.2rem"}  :{}}/>
+                <Link href="/">
+                  <span className={styles.nav__text}>My Details</span>
+                </Link>
+              </li>
+              <li className={styles.nav_link}>
+                  <AiOutlineProfile className={styles.icons} style={!active ? {position:  "relative", left :"-3.2rem"}  :{}} />
+                <Link href="/">
+                  <span className={styles.nav__text}>Profile</span>
+                </Link>
+              </li>
+              <li className={styles.nav_link}>
+                  <BsFilePost className={styles.icons} style={!active ? {position:  "relative", left :"-3.2rem"}  :{}}/>
+                <Link href="/">
+                  <span className={styles.nav__text}>Posts</span>
+                </Link>
+              </li>
+              <li className={styles.nav_link}>
+                  <IoMdNotificationsOutline className={styles.icons} style={!active ? {position:  "relative", left :"-3.2rem"}  :{}}/>
+                <Link href="/">
+                  <span className={styles.nav__text}>Notices</span>
+                </Link>
+              </li>
+              <li className={styles.nav_link}>
+                  <AiOutlineTeam className={styles.icons} style={!active ? {position:  "relative", left :"-3.2rem"}  :{}}/>
+                <Link href="/">
+                  <span className={styles.nav__text}>Connections</span>
+                </Link>
+              </li>
+              <li className={styles.nav_link}>
+                  <FaDonate className={styles.icons} style={!active ? {position:  "relative", left :"-3.2rem"}  :{}}/>
+                <Link href="/">
+                  <span className={styles.nav__text}>Donations</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-export default Sidebar
+        
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Sidebar;

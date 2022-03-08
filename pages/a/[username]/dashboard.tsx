@@ -5,23 +5,18 @@ import Navigation from "../../../components/reusables/Navigation";
 import styles from "../../../styles/Dashboard/AlumniDashboard.module.scss";
 
 
-type Props = {
- children : React.ReactNode;
-}
 
-export default function Dashboard({ children} :Props) {
 
-  const [isOpen, setOpen] = useState(false);
+export default function Dashboard() {
 
-  const toggleSidebar = () =>{
-    setOpen((prev) => !prev);
-  }
+
+ 
   return (
     <div className={styles.container}>
       <Navigation />
       <div className={styles.dashboard__container}>
         <div className={styles.dashboard__sidebar}>
-          <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}/>
+          <Sidebar />
         </div>
         <div className={styles.dashboard__content}>
           <Content />
