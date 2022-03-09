@@ -1,8 +1,15 @@
 .container {
   height: calc(100vh - 4.0625rem);
-  background-color: green;
+  background-color: var(--alice-blue);
   padding: 1.3rem ;
   display: flex;
   color: var(--white);
+  // width: 100vw;
+  // height: 100vh;
+  
+
+  @media only screen and (max-width: 468px) {
+    width: 100vw;
+  }
  
 }

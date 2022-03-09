@@ -6,6 +6,11 @@
   padding: 10px 14px;
   transition: all 0.5s ease-in-out;
 
+  @media only screen and (max-width: 600px) {
+   height: 100vh;
+
+  }
+
   li {
     height: 3.125rem;
     // background: red;
@@ -14,12 +19,10 @@
     display: flex;
     align-items: center;
     font-family: Montserrat;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.9rem;
-      line-height: 21px;
-   
-   
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 21px;
   }
 
   header {
@@ -61,44 +64,75 @@
       cursor: pointer;
     }
   }
-  .nav_links{
+  .nav_links {
     margin-top: 5rem;
-  
-  .nav_link {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border-radius: 6px;
-    transition: all 0.3s ease;
- 
 
-    &:hover {
-      background-color: var(--brand-blue);
-      color: var(--white);
-      cursor: pointer;
-
-    }
-    
-    .nav__text{
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.9rem;
-      line-height: 21px;
-
-     
-    }
-    .icons {
+    .nav_link {
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-width: 3.75rem;
-      font-size: 1.25rem;
-      color: var(--slate-grey);
-      &:hover{
+      width: 100%;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: var(--brand-blue);
         color: var(--white);
+        cursor: pointer;
+      }
+
+      .nav__text {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.9rem;
+        line-height: 21px;
+      }
+      .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 3.75rem;
+        font-size: 1.25rem;
+        color: var(--slate-grey);
+        &:hover {
+          color: var(--brand-blue);
+        }
+      }
+      @media only screen and (max-width: 1000px) {
+        cursor: pointer;
+      
+
+        .icons{
+          color:var(--slate-grey);
+          &:hover{
+            color:var(--brand-blue);
+          }
+        }
       }
     }
   }
-}
+
+  // code for mobile view
+//  @media  only screen and ( max-width : 768px){
+   
+//     .nav_links{
+//       color: var(--slate-grey);
+
+    
+//     }
+//     .nav_link{
+//       width: 100%;
+//       margin-top: 0.625rem;
+//     }
+//     .nav__text{
+//       font-size: 1.5rem;
+//     }
+//     .icons{
+//       font-size: 1.5rem;
+
+//       &:hover{
+//         color: var(--brand-blue);
+//       }
+//     }
+//  }
 }
