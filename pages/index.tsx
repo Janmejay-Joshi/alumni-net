@@ -1,16 +1,15 @@
 import type { NextPage } from "next";
 import { GiClick } from "react-icons/gi";
 import styles from "../styles/PageStyles/Hero.module.scss";
-import alumniIcon from "../public/images/Hero/alumni_icon.png";
+import { FaGraduationCap } from "react-icons/fa";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <main>
-        <div className={styles.hero_wrapper}>
+    <div className={styles.hero_wrapper}>
+          <main>
           <div className={styles.header}>
             <div className={styles.block_logo}>
-              <img src="/icon.png" style={{ height: "65px" }} />
+              <FaGraduationCap color="white" size={35} />
               <span className={styles.title}>Alumni Connect</span>
             </div>
             <div className={styles.menu}>
@@ -71,7 +70,6 @@ const Home: NextPage = () => {
               <div className={styles.feature_item}>aaaa</div>
             </div>
           </div>
-        </div>
       </main>
 
       <footer className={styles.footer}></footer>
