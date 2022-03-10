@@ -52,7 +52,7 @@ const getThreadList = async (title: string) => {
 
 export type ThreadID = string;
 
-export interface Chat {
+export interface MessageInterface {
   uid: string;
   profile_pic: string;
   message?: string;
@@ -64,7 +64,7 @@ export interface Thread {
   id: string;
   title: string;
   college: string;
-  chat: Array<Chat>;
+  chat: Array<MessageInterface>;
 }
 
 export { postMessage, addThread, getThreadList };
