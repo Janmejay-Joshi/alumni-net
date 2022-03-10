@@ -1,7 +1,5 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import {
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
   useEffect,
   useRef,
   useState,
@@ -11,7 +9,7 @@ import { useForm } from "react-hook-form";
 import Navigation from "../../components/reusables/Navigation";
 import Img from "../../components/reusables/Img";
 import { auth, db } from "../../firebase";
-import { Thread, ThreadID, postMessage } from "../../firebase/chatFunctions";
+import { Thread, ThreadID, postMessage, MessageInterface } from "../../firebase/chatFunctions";
 import styles from "../../styles/PageStyles/Chat.module.scss";
 
 interface MessageInput {
@@ -161,7 +159,7 @@ export default function Chat() {
   );
 }
 
-function ChatRecive({ data }: { data }) {
+function ChatRecive({ data }: { data: MessageInterface }) {
   const time = new Date(data.timestamp);
   return (
     <div className={styles.chat_recive}>
@@ -185,7 +183,7 @@ function ChatRecive({ data }: { data }) {
   );
 }
 
-function ChatSent({ data }: { data }) {
+function ChatSent({ data }: { data: MessageInterface }) {
   const time = new Date(data.timestamp);
   return (
     <div className={styles.chat_sent}>

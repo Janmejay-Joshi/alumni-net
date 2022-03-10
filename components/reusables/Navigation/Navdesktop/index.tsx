@@ -4,7 +4,7 @@ import styles from "./Navdesktop.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import {GoSearch} from "react-icons/go";
+import { GoSearch } from "react-icons/go";
 
 import Dropdown from "../Nav/Dropdown";
 import Searchbox from "../Nav/Searchbox";
@@ -34,31 +34,39 @@ export default function Navdesktop() {
       <div className={styles.block_menu}>
         <div
           className={`${styles.navitem} ${
-            router.pathname == "/" ? styles.navitem__active : ""
+            router.pathname == "/a" ? styles.navitem__active : ""
           }`}
         >
-          <Link href="/a">Home</Link>
+          <Link href="/a" passHref>
+            Home
+          </Link>
         </div>
         <div
           className={`${styles.navitem} ${
             router.pathname == "/a/explore" ? styles.navitem__active : ""
           }`}
         >
-          <Link href="/notice">Notices</Link>
+          <Link href="/a/explore" passHref>
+            Explore
+          </Link>
         </div>
         <div
           className={`${styles.navitem} ${
             router.pathname == "/a/notice" ? styles.navitem__active : ""
           }`}
         >
-          <Link href="/">Colleges</Link>
+          <Link href="/a/notices" passHref>
+            Notices
+          </Link>
         </div>
         <div
           className={`${styles.navitem} ${
             router.pathname == "/a/chat" ? styles.navitem__active : ""
           }`}
         >
-          <Link href="/a/chat">Messenger</Link>
+          <Link href="/a/chat" passHref>
+            Messenger
+          </Link>
         </div>
       </div>
       <div className={styles.block_profile}>
@@ -66,12 +74,14 @@ export default function Navdesktop() {
           <GoSearch onClick={handleSearchClick} />
         </div>
         <div className={styles.profile}>
-          <img
-            src={user?.photoURL}
-            className={styles.profilepic}
-            onClick={handleProfileClick}
-            alt="profilepic"
-          />
+          {user?.photoURL && (
+            <img
+              src={user?.photoURL}
+              className={styles.profilepic}
+              onClick={handleProfileClick}
+              alt="profilepic"
+            />
+          )}
         </div>
         {dropdown && <Dropdown />}
         {searchbox && <Searchbox />}
