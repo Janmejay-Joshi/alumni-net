@@ -2,8 +2,12 @@ import type { NextPage } from "next";
 import { GiClick } from "react-icons/gi";
 import styles from "../styles/PageStyles/Hero.module.scss";
 import { FaGraduationCap } from "react-icons/fa";
+import { useRouter } from "next/router";
+
+
 
 const Home: NextPage = () => {
+  const router = useRouter();
   return (
     <div className={styles.hero_wrapper}>
           <main>
@@ -27,7 +31,7 @@ const Home: NextPage = () => {
                 <div className={styles.click_icon}>
                   <GiClick />
                 </div>
-                <div className={styles.click_text}>Click to Explore</div>
+                <div className={styles.click_text} onClick={() => router.push('/a')}>Click to Explore</div>
               </button>
             </div>
             <div className={styles.bottom_icon}>
