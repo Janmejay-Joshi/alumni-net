@@ -22,7 +22,7 @@ const Sidebar = () => {
   };
   return (
     <>
-      <nav className={styles.sidebar} style={!active ? { width: "4rem" } : {}}>
+      <nav className={styles.sidebar} style={!active ? { width: "4rem", height:"100vh" } : {}}>
         <header>
           <div
             className={styles.header__text}
@@ -47,6 +47,7 @@ const Sidebar = () => {
                           position: "relative",
                           left: "-3.2rem",
                           fontSize: "1.8rem",
+                         
                         }
                       : {}
                   }

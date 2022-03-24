@@ -1,15 +1,21 @@
 .container {
-  height: calc(100vh - 4.0625rem);
+  // height: calc(100vh - 4.0625rem);
   background-color: var(--alice-blue);
-  padding: 1.3rem ;
-  display: flex;
+  // padding: 1.3rem ;
+  // display: flex;
   color: var(--white);
+  height: 100vh;
+  padding: 1rem;
   // width: 100vw;
   // height: 100vh;
+  // width: 100vw;
   
 
-  @media only screen and (max-width: 468px) {
-    width: 100vw;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // padding: 10rem;
   }
  
 }

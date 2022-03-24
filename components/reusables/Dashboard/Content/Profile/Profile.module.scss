@@ -1,9 +1,4 @@
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 5rem 0 2rem;
-  overflow: hidden;
+
 
   .upper__content {
     display: flex;
@@ -15,10 +10,14 @@
       // padding: 0 1rem;
     }
 
-    @media only screen and (max-width: 800px) {
-      padding: 0 0.5rem;
+    
+
+    @media only screen and (max-width: 768px) {
+      
       display: flex;
       flex-direction: column;
+      width: 100%;
+      // padding: 10rem;
     }
 
     .profile__img_container {
@@ -26,6 +25,10 @@
       background: var(--dark-blue);
       border-radius: 90px 3px 3px 0px;
       height: 200px;
+      @media only screen and (max-width: 768px) {
+        height: 150px;
+        
+      }
 
       .profile__img {
         /* White */
@@ -40,11 +43,26 @@
         box-sizing: border-box;
         top: 8rem;
         left: 5.125rem;
+        @media only screen and (max-width: 768px) {
+          height: 5rem;
+          width : 5rem;
+          top: 7rem;
+          left: 5.125rem;
+
+          
+        }
 
         > img {
           border-radius: 50%;
           width: 10rem;
           height: 159px;
+
+          @media only screen and (max-width: 768px) {
+            height: 5rem;
+            width : 5rem;
+
+            
+          }
         }
       }
     }
@@ -80,6 +98,14 @@
 
         color: #000000;
       }
+      @media only screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 2rem;
+        margin-top: 3.4rem;
+      }
     }
   }
   .main__content {
@@ -90,12 +116,27 @@
     box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.25);
     border-radius: 1rem;
     padding: 2.6rem 2.4rem;
-    min-height: 400px;
+    // min-height: 400px;
     margin-top: 8rem;
+    @media only screen and (max-width: 768px) {
+      min-width: 400px;
+      display: flex;
+      flex-direction: column;
+      
+      
+    }
+    
 
     .form {
       display: flex;
       flex-direction: row;
+      @media only screen and (max-width: 768px) {
+        // min-width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
       .left__div {
         display: flex;
@@ -313,7 +354,7 @@
       }
     }
   }
-}
+
 
 /*
  .btn__container {
