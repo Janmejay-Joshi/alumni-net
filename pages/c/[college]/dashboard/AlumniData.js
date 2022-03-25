@@ -1,5 +1,5 @@
 import styles from "../../../../styles/Dashboard/CollegeDashboard.module.scss";
-
+import {FaRegTrashAlt} from "react-icons/fa";
 
 export const alumniColumns = [
     { field: 'id', headerName: 'ID', width: 70 },
@@ -12,13 +12,17 @@ export const alumniColumns = [
                     {params.row.Name}
                     
                 </div>
-                <div className={styles.email__cont}>
+                <div className={styles.email__container}>
                     {params.row.email}
                 </div>
                 </div>
             </>
         )
     }},
+    {field: "Branch", headerName: "Branch", width: 150},
+    {field: "year", headerName: "Year of Passing", width: 150},
+    {field: "Work", headerName: "Work", width: 150},
+  
 ]
 
 
@@ -33,7 +37,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 2,
@@ -43,7 +47,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 3,
@@ -53,7 +57,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 4,
@@ -63,7 +67,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 5,
@@ -73,7 +77,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 6,
@@ -83,7 +87,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 7,
@@ -93,7 +97,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 8,
@@ -103,7 +107,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 9,
@@ -113,7 +117,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 10,
@@ -123,7 +127,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 11,
@@ -133,7 +137,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 12,
@@ -143,7 +147,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 13,
@@ -153,7 +157,7 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   },
   {
     id: 14,
@@ -163,6 +167,6 @@ export const alumniRows = [
     Branch: "AIR",
     year: 2024,
     Work: "Google CEO",
-    Action: "Remove",
+    
   }
 ];
