@@ -6,6 +6,12 @@ export default function Chat() {
   return (
     <div className={styles.container}>
       <Navigation />
+      <h1 className={styles.heading}>
+          Verify List
+      </h1>
+      <div className={styles.cardgrid}>
+        
+      </div>
     </div>
   );
 }

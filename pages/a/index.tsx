@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import PostCard from "../../components/home/PostCard";
+import Postoverlay from "../../components/home/Postoverlay";
 import Navigation from "../../components/reusables/Navigation";
 import { auth } from "../../firebase";
 import styles from "../../styles/PageStyles/Home.module.scss";
@@ -17,8 +18,17 @@ export default function Chat() {
     if (error) console.log(error);
   }, [loading, user, error, router]);
 
+  const [post, setPost] = useState(false);
+
+  function openPostOverlay(){
+    setPost(!post);
+  }
+
   return user ? (
+    <>
+    {post&&<Postoverlay/>}
     <div className={styles.container}>
+
       <Navigation />
       <main className={styles.main}>
         <section className={styles.contact_section}>
@@ -69,7 +79,7 @@ export default function Chat() {
           </div>
         </section>
         <section className={styles.post_section}>
-          <div className={styles.post}>{"What's on your Mind?"}</div>
+          <div className={styles.post} onClick={openPostOverlay}>{"What's on your Mind?"}</div>
           <div className={styles.feed}>
             <PostCard />
           </div>
@@ -101,11 +111,12 @@ export default function Chat() {
 
           <div className={styles.info_footer}>
             {
-              "Privacy  .  Terms  .  Advertising  .  Ad Choices  .  Cookies  .  More  .  Facebook © 2020"
+              "Privacy  .  Te+++rms  .  Advertising  .  Ad Choices  .  Cookies  .  More  .  Facebook © 2020"
             }
           </div>
         </section>
       </main>
     </div>
+    </>
   ) : loading ? (<h2>loading</h2>) : null;
 }
