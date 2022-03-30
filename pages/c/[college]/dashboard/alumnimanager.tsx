@@ -4,7 +4,7 @@ import { BiColumns, BiTrashAlt } from "react-icons/bi";
 import DashboardLayout from "../../../../layout/DashboardLayout";
 import styles from "../../../../styles/Dashboard/CollegeDashboard.module.scss";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import { alumniColumns, alumniRows } from "./AlumniData";
+import { alumniColumns, alumniRows } from "../../../../components/reusables/Dashboard/AlumniData";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 function AlumniManager() {

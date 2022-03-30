@@ -1,7 +1,8 @@
-import styles from "../../../../styles/Dashboard/CollegeDashboard.module.scss";
+import styles from "../../../styles/Dashboard/CollegeDashboard.module.scss";
 import {FaRegTrashAlt} from "react-icons/fa";
 
-export const alumniColumns = [
+
+export  const alumniColumns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'name', headerName: 'Name', width: 230 , renderCell :(params) =>{
         return(
