@@ -21,12 +21,15 @@ export default function Chat() {
   const [post, setPost] = useState(false);
 
   function openPostOverlay(){
-    setPost(!post);
+    setPost(true);
+  }
+  function closePostOverlay(){
+    setPost(false)
   }
 
   return user ? (
     <>
-    {post&&<Postoverlay/>}
+    {post&&<Postoverlay closeOverlay = {closePostOverlay} openOverlay = {openPostOverlay}/>}
     <div className={styles.container}>
 
       <Navigation />

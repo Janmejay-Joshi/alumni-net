@@ -2,10 +2,10 @@ import { HiDocument } from 'react-icons/hi'
 import { IoMdPhotos } from 'react-icons/io'
 import styles from './Postoverlay.module.scss'
 
-export default function Postoverlay(){
+export default function Postoverlay(props:any){
     return(
-        <div className={styles.container}>
-            <div className={styles.overlay_wrapper}>
+        <div className={styles.container} onClick = {props.closeOverlay}>
+            <div className={styles.overlay_wrapper} onClick = {props.openOverlay}>
                 <div className={styles.header_block}>
                     <img src="/assets/images/Nav/profile.svg" alt="profile" className={styles.profile_icon}/>
                     <div className={styles.heading}>
