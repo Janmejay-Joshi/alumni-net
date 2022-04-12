@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiUpArrow } from "react-icons/bi";
 import styles from "../../../../styles/PageStyles/HeroPage/ScrollToTop.module.scss";
 
@@ -22,7 +22,19 @@ const ScrollToTop = (props: Props) => {
       behavior: "smooth",
     });
 };
+useEffect(() => {
+
 window.addEventListener("scroll", toggleVisibility);
+
+},[])
+
+//   const scrollToTop = () => {
+//     window.scrollTo({
+//       top: 0,
+//       behavior: "smooth",
+//     });
+// };
+// window.addEventListener("scroll", toggleVisibility);
 
   return (
     <>
