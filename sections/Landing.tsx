@@ -3,6 +3,7 @@ import React from "react";
 import styles from "../styles/PageStyles/HeroPage/Landing.module.scss";
 import Alumni_image from "../public/assets/images/Hero/alumni_icon.svg";
 import { GiClick } from "react-icons/gi";
+import Link from "next/link";
 type Props = {};
 
 const Landing = (props: Props) => {
@@ -17,11 +18,11 @@ const Landing = (props: Props) => {
             <div className={styles.button_container}>
               <button>
                 <GiClick />
-                Continue As Alumni
+                <Link href="/a" passHref>Continue As Alumni</Link> 
               </button>
               <button>
                 <GiClick />
-                Continue As College
+                <Link href="/c" passHref>Continue As College</Link> 
               </button>
             </div>
           </div>
