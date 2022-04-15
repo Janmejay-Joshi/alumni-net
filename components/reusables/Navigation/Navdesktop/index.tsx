@@ -28,8 +28,7 @@ export default function Navdesktop() {
   return (
     <div className={styles.container}>
       <div className={styles.block_logo}>
-        <img src="/icon.png" style={{ height: "100%" }} />
-        <span className={styles.title}>Alumni Connect</span>
+        <img src="/assets/logo_nav.png" style={{ height: "100%" }} />
       </div>
       <div className={styles.block_menu}>
         <div

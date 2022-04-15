@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import PostCard from "../../components/home/PostCard";
 import Postoverlay from "../../components/home/Postoverlay";
 import Navigation from "../../components/reusables/Navigation";
+import Preloader from "../../components/reusables/Preloader";
 import { auth } from "../../firebase";
 import styles from "../../styles/PageStyles/Home.module.scss";
 
@@ -121,5 +122,5 @@ export default function Chat() {
       </main>
     </div>
     </>
-  ) : loading ? (<h2>loading</h2>) : null;
+  ) : loading ? (<Preloader/>) : null;
 }
