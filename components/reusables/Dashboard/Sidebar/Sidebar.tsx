@@ -19,130 +19,65 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Sidebar = () => {
   const [user] = useAuthState(auth);
 
-  const [active, setActive] = useState(false);
-
-  const toggleActive = () => {
-    setActive(!active);
-  };
   return (
     <>
-      <nav className={styles.sidebar} style={!active ? { width: "4rem", height:"100vh" } : {}}>
-        <header>
-          <div
-            className={styles.header__text}
-            style={!active ? { display: "none" } : {}}
-          >
-            <span className={styles.header__text__title}>Alumni-Connect</span>
-          </div>
-
-          <div className={styles.header__icon} onClick={() => toggleActive()}>
-            {active ? <IoIosArrowBack /> : <IoIosArrowForward />}
-          </div>
-        </header>
+      <nav className={styles.sidebar}>
+        
         <div className={styles.nav_menu}>
           <div className={styles.menu}>
             <ul className={styles.nav_links}>
               <li className={styles.nav_link}>
                 <CgDetailsMore
                   className={styles.icons}
-                  style={
-                    !active
-                      ? {
-                          position: "relative",
-                          left: "-3.2rem",
-                          fontSize: "1.8rem",
-                         
-                        }
-                      : {}
-                  }
+                  
                 />
                 <Link  href={`/a/${user?.uid}/dashboard/my-details`} passHref>
-                 <span  style={!active ? { display: "none" } : {}}>My Details</span>
+                 <span  className={styles.link_text}>My Details</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
                 <AiOutlineProfile
                   className={styles.icons}
-                  style={
-                    !active
-                      ? {
-                          position: "relative",
-                          left: "-3.2rem",
-                          fontSize: "1.8rem",
-                        }
-                      : {}
-                  }
+                  
                 />
                 <Link  href={`/a/${user?.uid}/dashboard/profile`} passHref>
-                 <span  style={!active ? { display: "none" } : {}}>Profile</span>
+                 <span  className={styles.link_text}>Profile</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
                 <BsFilePost
                   className={styles.icons}
-                  style={
-                    !active
-                      ? {
-                          position: "relative",
-                          left: "-3.2rem",
-                          fontSize: "1.8rem",
-                        }
-                      : {}
-                  }
+                  
                 />
                 <Link  href={`/a/${user?.uid}/post`} passHref>
-                <span  style={!active ? { display: "none" } : {}}>Posts</span>
+                <span  className={styles.link_text}>Posts</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
                 <IoMdNotificationsOutline
                   className={styles.icons}
-                  style={
-                    !active
-                      ? {
-                          position: "relative",
-                          left: "-3.2rem",
-                          fontSize: "1.8rem",
-                        }
-                      : {}
-                  }
+                  
                 />
                 <Link  href={`/a/${user?.uid}/noticeboard`} passHref>
-                 <span  style={!active ? { display: "none" } : {}}>Notices</span>
+                 <span  className={styles.link_text}>Notices</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
                 <AiOutlineTeam
                   className={styles.icons}
-                  style={
-                    !active
-                      ? {
-                          position: "relative",
-                          left: "-3.2rem",
-                          fontSize: "1.8rem",
-                        }
-                      : {}
-                  }
+                  
                 />
                 <Link  href={`/a/${user?.uid}/dashboard/my-connections`} passHref>
-                 <span  style={!active ? { display: "none" } : {}}>Connections</span>
+                 <span  className={styles.link_text}>Connections</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
                 <FaDonate
                   className={styles.icons}
-                  style={
-                    !active
-                      ? {
-                          position: "relative",
-                          left: "-3.2rem",
-                          fontSize: "1.8rem",
-                        }
-                      : {}
-                  }
+                  
                 />
                 <Link  href={`/a/${user?.uid}/dashboard/donation`} passHref>
-                 <span  style={!active ? { display: "none" } : {}}>Donations</span>
+                 <span  className={styles.link_text}>Donations</span>
                 </Link>
               </li>
             </ul>
