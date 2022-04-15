@@ -30,6 +30,8 @@
     list-style-type: none;
   }
 
+
+
   .navlink {
     font-family: "Poppins";
     font-style: normal;
@@ -81,10 +83,20 @@
     .hamburger {
       display: block;
       cursor: pointer;
+      background: transparent;
+      border:none;
+      outline: none;
+      .bar{
+        background-color: white;
+      }
+      
+      
     }
 
     .hamburger.active .bar:nth-child(2) {
       opacity: 0;
+      
+      
     }
 
     .hamburger.active .bar:nth-child(1) {
