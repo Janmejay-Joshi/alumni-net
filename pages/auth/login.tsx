@@ -99,7 +99,7 @@ export default function Login() {
               <input
                 type="submit"
                 form="UserPass Form"
-                value="Next Step"
+                value="Login"
                 className={styles.submit}
               />
             </div>
