@@ -1,4 +1,5 @@
 import React from "react";
+import Connections from "./Connections";
 import styles from "./Content.module.scss";
 import Details from "./Details";
 import Donation from "./Donation";
@@ -10,7 +11,7 @@ const Content = () => {
   
   return (
     <div className={styles.container}>
-    <Donation />
+    <Connections />
     </div>
   );
 };
