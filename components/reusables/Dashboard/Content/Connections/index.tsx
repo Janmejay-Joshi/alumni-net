@@ -17,6 +17,9 @@ export default function Connections() {
                   />
                 </div>
                 <span className={styles.title}></span>
+                <span className={styles.btn__container}>
+                    <button className={styles.btn}>Remove</button>
+                </span>
               </div>
             );
           })}
