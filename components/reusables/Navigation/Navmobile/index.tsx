@@ -4,10 +4,17 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import Navmenu from "./Navmenu";
 import Bottombar from "./Bottombar";
+import Link from "next/link";
+
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../../firebase";
+
 
 const Navmobile = () => {
   const [value, setValue] = useState("");
   const [showmenu, setShowmenu] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
+
 
   function handleChangeMenu() {
     setShowmenu(!showmenu);
@@ -38,7 +45,17 @@ const Navmobile = () => {
           ></input>
         </form>
       </div>
-      <div className={styles.profile}></div>
+      <Link href={`/a/${user?.uid}/dashboard`} passHref>
+      <div className={styles.profile}>
+      {user?.photoURL && (
+            <img
+              src={user?.photoURL}
+              className={styles.profilepic}
+              alt="profilepic"
+            />
+      )}
+      </div>
+      </Link>
     </div>
     <Bottombar />
     </>
