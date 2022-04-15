@@ -6,11 +6,7 @@
   padding: 10px 14px;
   transition: all 0.5s ease-in-out;
 
-
-  @media only screen and (max-width: 768px) {
-  //  height: 100vh;
-
-  }
+  
 
   li {
     height: 3.125rem;
@@ -33,13 +29,16 @@
       display: flex;
       align-items: center;
       transition: all 0.5s ease-in-out;
+      justify-content: center;
+      
 
       &__title {
         font-family: Montserrat;
         font-style: normal;
         font-weight: 600;
-        font-size: 1.06rem;
+        font-size: 1.4rem;
         line-height: 21px;
+
         text-align: center;
 
         /* identical to box height */
@@ -63,6 +62,7 @@
       border-radius: 50%;
       font-size: 1.3rem;
       cursor: pointer;
+      z-index: 1;
     }
   }
   .nav_links {
@@ -74,66 +74,56 @@
       width: 100%;
       border-radius: 6px;
       transition: all 0.3s ease;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 21px;
+      cursor: pointer;
 
       &:hover {
         background-color: var(--brand-blue);
         color: var(--white);
-        cursor: pointer;
-      }
-
-      .nav__text {
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 0.9rem;
-        line-height: 21px;
+        
       }
       .icons {
         display: flex;
         align-items: center;
         justify-content: center;
         min-width: 3.75rem;
-        font-size: 1.25rem;
-        color: var(--slate-grey);
-        &:hover {
-          color: var(--brand-blue);
-        }
-      }
-      @media only screen and (max-width: 1000px) {
-        cursor: pointer;
+        font-size: 1.5rem;
+        
       
-
-        .icons{
-          color:var(--slate-grey);
-          &:hover{
-            color:var(--brand-blue);
-          }
-        }
       }
+      
     }
   }
 
   // code for mobile view
-//  @media  only screen and ( max-width : 768px){
-   
-//     .nav_links{
-//       color: var(--slate-grey);
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .header__text {
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
 
-    
-//     }
-//     .nav_link{
-//       width: 100%;
-//       margin-top: 0.625rem;
-//     }
-//     .nav__text{
-//       font-size: 1.5rem;
-//     }
-//     .icons{
-//       font-size: 1.5rem;
+    &__title {
+      margin-top: 3rem;
+      /* identical to box height */
 
-//       &:hover{
-//         color: var(--brand-blue);
-//       }
-//     }
-//  }
+      color: var(--brand-blue);
+    }
+  }
+  .header__icon {
+    margin-top: 1.3rem;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .icons{
+    color: var(--slate-grey);
+    &:hover{
+      color: var(--brand-blue);
+    }
+  }
+
 }

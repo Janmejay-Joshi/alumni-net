@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./Sidebar.module.scss";
-import data from "./Data";
 import Link from "next/link";
 import { GiHamburgerMenu, GiRamProfile } from "react-icons/gi";
 import {
@@ -13,8 +12,13 @@ import { AiOutlineProfile, AiOutlineTeam } from "react-icons/ai";
 import { BsFilePost } from "react-icons/bs";
 import { FaDonate } from "react-icons/fa";
 import { CgDetailsMore } from "react-icons/cg";
+import { auth } from "../../../../firebase"
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 const Sidebar = () => {
+  const [user] = useAuthState(auth);
+
   const [active, setActive] = useState(false);
 
   const toggleActive = () => {
@@ -52,8 +56,8 @@ const Sidebar = () => {
                       : {}
                   }
                 />
-                <Link href="/">
-                  <span className={styles.nav__text}>My Details</span>
+                <Link  href={`/a/${user?.uid}/dashboard/my-details`} passHref>
+                 <span  style={!active ? { display: "none" } : {}}>My Details</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
@@ -69,8 +73,8 @@ const Sidebar = () => {
                       : {}
                   }
                 />
-                <Link href="/">
-                  <span className={styles.nav__text}>Profile</span>
+                <Link  href={`/a/${user?.uid}/dashboard/profile`} passHref>
+                 <span  style={!active ? { display: "none" } : {}}>Profile</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
@@ -86,8 +90,8 @@ const Sidebar = () => {
                       : {}
                   }
                 />
-                <Link href="/">
-                  <span className={styles.nav__text}>Posts</span>
+                <Link  href={`/a/${user?.uid}/post`} passHref>
+                <span  style={!active ? { display: "none" } : {}}>Posts</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
@@ -103,8 +107,8 @@ const Sidebar = () => {
                       : {}
                   }
                 />
-                <Link href="/">
-                  <span className={styles.nav__text}>Notices</span>
+                <Link  href={`/a/${user?.uid}/noticeboard`} passHref>
+                 <span  style={!active ? { display: "none" } : {}}>Notices</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
@@ -120,8 +124,8 @@ const Sidebar = () => {
                       : {}
                   }
                 />
-                <Link href="/">
-                  <span className={styles.nav__text}>Connections</span>
+                <Link  href={`/a/${user?.uid}/dashboard/my-connections`} passHref>
+                 <span  style={!active ? { display: "none" } : {}}>Connections</span>
                 </Link>
               </li>
               <li className={styles.nav_link}>
@@ -137,8 +141,8 @@ const Sidebar = () => {
                       : {}
                   }
                 />
-                <Link href="/">
-                  <span className={styles.nav__text}>Donations</span>
+                <Link  href={`/a/${user?.uid}/dashboard/donation`} passHref>
+                 <span  style={!active ? { display: "none" } : {}}>Donations</span>
                 </Link>
               </li>
             </ul>

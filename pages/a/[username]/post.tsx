@@ -1,8 +1,8 @@
 import React from "react";
-import PostCard from "../../../../home/PostCard";
-import Infocard from "../../../../Noticepost/Infocard";
-import styles from "./Post.module.scss";
 
+
+import PostCard from "../../../components/Noticepost/Postcard";
+import styles from "../../../styles/PageStyles/Alumni/Post.module.scss"
 const Post = () => {
   return (
     <div className={styles.cont}>
@@ -12,5 +12,7 @@ const Post = () => {
     </div>
   );
 };
+
+
 
 export default Post;

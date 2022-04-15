@@ -1,6 +1,7 @@
-import styles from "./Connections.module.scss"
+import AlumniDashboardLayout from "../../../../layout/AlumniDashboardLayout";
+import styles from "../../../../styles/Dashboard/Connections.module.scss";
 
-export default function Connections() {
+function Connections() {
   return (
     <>
       <div className={styles.available_chats_wraper}>
@@ -28,3 +29,8 @@ export default function Connections() {
     </>
   );
 }
+
+// add page Layout
+Connections.PageLayout = AlumniDashboardLayout;
+
+export default Connections;

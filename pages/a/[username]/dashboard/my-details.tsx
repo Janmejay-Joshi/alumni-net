@@ -1,7 +1,10 @@
 import React from "react";
-import styles from "./Details.module.scss";
+import AlumniDashboardLayout from "../../../../layout/AlumniDashboardLayout";
+import styles from "../../../../styles/Dashboard/Details.module.scss";
 
-export default function Details() {
+
+
+ function Details() {
   return (
     <>
       <div className={styles.upper__content}>
@@ -32,3 +35,6 @@ export default function Details() {
     </>
   );
 }
+
+Details.PageLayout =AlumniDashboardLayout ;
+export default Details;

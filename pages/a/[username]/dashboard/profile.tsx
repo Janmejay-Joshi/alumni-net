@@ -1,6 +1,9 @@
 import React from "react";
-import styles from "./Profile.module.scss";
+import styles from "../../../../styles/Dashboard/Profile.module.scss";
+
 import { useForm, SubmitHandler } from "react-hook-form";
+import AlumniDashboardLayout from "../../../../layout/AlumniDashboardLayout";
+
 
 interface InputSchema {
   username: string;
@@ -116,5 +119,7 @@ const Profile = () => {
     </>
   );
 };
+Profile.PageLayout =AlumniDashboardLayout ;
+
 
 export default Profile;

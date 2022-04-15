@@ -1,6 +1,8 @@
-import styles from "./Donation.module.scss";
+import AlumniDashboardLayout from "../../../../layout/AlumniDashboardLayout";
+import styles from "../../../../styles/Dashboard/Donation.module.scss";
 
-export default function Donation() {
+
+ function Donation() {
   return (
     <>
         <div className={styles.main}>
@@ -24,3 +26,7 @@ export default function Donation() {
     </>
   );
 }
+
+Donation.PageLayout = AlumniDashboardLayout;
+
+export default Donation;
