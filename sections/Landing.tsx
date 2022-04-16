@@ -22,7 +22,7 @@ const Landing = (props: Props) => {
               </button>
               <button>
                 <GiClick />
-                <Link href="/c" passHref>Continue As College</Link> 
+                <Link href="/c/user/dashboard" passHref>Continue As College</Link> 
               </button>
             </div>
           </div>
