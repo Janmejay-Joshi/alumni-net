@@ -6,7 +6,7 @@ import {
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
-import { query, getDocs, collection, where, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from ".";
 
 const googleProvider = new GoogleAuthProvider();
@@ -14,14 +14,19 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-    if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
+
+    if (user.email != null) {
+      await setDoc(doc(db, "users", user.email), {
         name: user.displayName,
+        verified: false,
+        bio: "",
+        college_info: "",
+        work_info: "",
         authProvider: "google",
         email: user.email,
+        posts: [],
+        conections: [],
+        donations: [],
       });
     }
   } catch (err) {

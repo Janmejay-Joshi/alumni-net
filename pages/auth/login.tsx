@@ -20,9 +20,6 @@ interface LoginInput {
   password: string;
 }
 
-const emailVerifyRegex =
-  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
 export default function Login() {
   const router = useRouter();
   const [user, loading, error] = useAuthState(auth);
@@ -64,7 +61,6 @@ export default function Login() {
                   className={styles.input}
                   {...register("email", {
                     required: true,
-                    pattern: emailVerifyRegex,
                   })}
                 />
                 {errors?.email?.type === "required" && (
