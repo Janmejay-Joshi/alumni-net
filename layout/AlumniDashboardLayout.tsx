@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 
-import styles from "../styles/Dashboard/CollegeDashboard.module.scss";
+import styles from "../styles/Dashboard/AlumniDashboard.module.scss";
 
 import Sidebaralt from "../components/reusables/Dashboard/Side-bar/Sidebaralt";
 import Navigation from "../components/reusables/Navigation";

@@ -53,15 +53,7 @@ const Sidebar = () => {
                 <span  className={styles.link_text}>Posts</span>
                 </Link>
               </li>
-              <li className={styles.nav_link}>
-                <IoMdNotificationsOutline
-                  className={styles.icons}
-                  
-                />
-                <Link  href={`/a/${user?.uid}/noticeboard`} passHref>
-                 <span  className={styles.link_text}>Notices</span>
-                </Link>
-              </li>
+             
               <li className={styles.nav_link}>
                 <AiOutlineTeam
                   className={styles.icons}

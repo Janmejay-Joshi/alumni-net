@@ -20,22 +20,22 @@ const Sidebaralt = () => {
       <div className={styles.center}>
         <ul>
             <p className={styles.title}>Alumni Management</p>
-          <li>
-          <MdOutlineManageAccounts className={styles.icon}/>
-            <span><Link href={`/c/${user?.uid}/dashboard/alumnimanager`} passHref >Alumni Manager</Link></span>
+          <li className={styles.nav_link}>
+          <MdOutlineManageAccounts className={styles.icons}/>
+            <span className={styles.link_text}><Link href={`/c/${user?.uid}/dashboard/alumnimanager`} passHref >Alumni Manager</Link></span>
           </li>
-          <li>
-          <MdVerified className={styles.icon}/>
-            <span><Link href={`/c/${user?.uid}/dashboard/verifyalumni`} passHref >Verify Alumni </Link></span>
+          <li className={styles.nav_link}>
+          <MdVerified className={styles.icons}/>
+            <span className={styles.link_text}><Link href={`/c/${user?.uid}/dashboard/verifyalumni`} passHref >Verify Alumni </Link></span>
           </li>
             <p className={styles.title}>Profile Management</p>
-          <li>
-          <CgProfile className={styles.icon}/>
-          <span><Link href={`/c/${user?.uid}/dashboard/editprofile`} passHref >Edit Profile</Link></span>
+          <li className={styles.nav_link}>
+          <CgProfile className={styles.icons}/>
+          <span className={styles.link_text}><Link href={`/c/${user?.uid}/dashboard/editprofile`} passHref >Edit Profile</Link></span>
           </li>
-          <li>
-            <IoIosNotificationsOutline className={styles.icon}/>
-            <span><Link href={`/c/${user?.uid}/dashboard/notices`} passHref >Notices</Link></span>
+          <li className={styles.nav_link}>
+            <IoIosNotificationsOutline className={styles.icons}/>
+            <span className={styles.link_text}><Link href={`/c/${user?.uid}/dashboard/notices`} passHref >Notices</Link></span>
           </li>
         </ul>
       </div>
